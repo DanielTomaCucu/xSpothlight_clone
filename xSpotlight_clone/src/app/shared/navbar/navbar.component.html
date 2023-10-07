@@ -1,24 +1,38 @@
-<nav class="bg-dark w-full p-6 flex gap-4 items-center lg:px-40 xl:px-80">
-  <div class="w-28">
-    <img src="./../assets/logos/xspotlight-light.svg" class="bg-dark" />
-  </div>
-  <div class="flex-1">
-    <input
-      placeholder="Search items, collections, creators"
-      class="bg-black p-4 w-full rounded-full"
-    />
-  </div>
+<div class="bg-dark">
+  <nav class="flex w-full gap-3 py-4  px-3 justify-center items-center">
+    <div class="w-28">
+      <img src="./../assets/logos/xspotlight-light.svg" class="bg-dark" />
+    </div>
+    <div class="flex-1 lg:block hidden">
+      <div class="flex items-center gap-3 bg-black p-3 w-full rounded-full">
+        <input
+          placeholder="Search items, collections, creators"
+          class="bg-black flex-1"
+        />
+        <mat-icon class="text-slate-500">search</mat-icon>
+      </div>
+    </div>
 
-  <ul class="flex text-white bg-black rounded-full p-4 items-center gap-3">
-    <li>Home</li>
-    <li>Blog</li>
-    <li>Explore</li>
-  </ul>
+    <div class="flex flex-1 lg:hidden">
+      <div class="ml-auto flex items-center gap-3 bg-black p-3 rounded-full">
+        <mat-icon class="text-slate-500">search</mat-icon>
+      </div>
+    </div>
 
-  <div class="bg-yellow py-3 px-4 rounded-full">
-    <button class="flex">
-      <mat-icon>bolt</mat-icon>
-      <p>Connect</p>
-    </button>
-  </div>
-</nav>
+    <div class="md:block hidden">
+      <ul
+        class="flex text-white bg-black rounded-full py-3 px-4 items-center gap-4"
+      >
+        <li>Home</li>
+        <li>Blog</li>
+        <li>Explore</li>
+      </ul>
+    </div>
+    <div class="bg-yellow py-2 rounded-full xs: px-2 md:px-4">
+      <button class="flex">
+        <mat-icon>bolt</mat-icon>
+        <p class="md:block hidden">Connect</p>
+      </button>
+    </div>
+  </nav>
+</div>
