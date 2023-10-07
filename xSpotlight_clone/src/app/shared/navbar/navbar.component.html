@@ -1,5 +1,8 @@
 <div class="bg-dark">
-  <nav class="flex w-full gap-3 py-4  px-3 justify-center items-center">
+  <nav
+    *ngIf="!showSearchBar"
+    class="flex w-full gap-3 py-4 px-3 justify-center items-center"
+  >
     <div class="w-28">
       <img src="./../assets/logos/xspotlight-light.svg" class="bg-dark" />
     </div>
@@ -7,14 +10,17 @@
       <div class="flex items-center gap-3 bg-black p-3 w-full rounded-full">
         <input
           placeholder="Search items, collections, creators"
-          class="bg-black flex-1"
+          class="bg-black flex-1 text-white"
         />
         <mat-icon class="text-slate-500">search</mat-icon>
       </div>
     </div>
 
     <div class="flex flex-1 lg:hidden">
-      <div class="ml-auto flex items-center gap-3 bg-black p-3 rounded-full">
+      <div
+        class="ml-auto flex items-center gap-3 bg-black p-3 rounded-full"
+        (click)="toggleSearchBar()"
+      >
         <mat-icon class="text-slate-500">search</mat-icon>
       </div>
     </div>
@@ -35,4 +41,38 @@
       </button>
     </div>
   </nav>
+  <nav class="flex py-4 px-3 items-center gap-3" *ngIf="showSearchBar">
+    <div
+      class="flex gap-3 bg-black p-3 w-full rounded-full justify-center items-center"
+    >
+      <input
+        placeholder="Search items, collections, creators"
+        class="bg-black flex-1 text-white"
+      />
+      <mat-icon class="text-slate-500">search</mat-icon>
+    </div>
+    <mat-icon (click)="toggleSearchBar()" class="text-white">close</mat-icon>
+  </nav>
+</div>
+
+<div class="subMenu md:hidden mt-8">
+  <ul
+    class="flex place-content-stretch justify-evenly  pt-6 px-4 items-center gap-4"
+  >
+    <li
+      class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2"
+    >
+      Home
+    </li>
+    <li
+      class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2"
+    >
+      Blog
+    </li>
+    <li
+       class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2"
+    >
+      Explore
+    </li>
+  </ul>
 </div>

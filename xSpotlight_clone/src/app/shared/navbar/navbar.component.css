@@ -1,32 +1,40 @@
-
-nav{
+p{
+  margin: 0px;
+}
+.subMenu,
+nav {
   margin: 0 auto;
 }
 @media (min-width: 576px) {
+  .subMenu,
   nav {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
+  .subMenu,
   nav {
     max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
+  .subMenu,
   nav {
     max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
+  .subMenu,
   nav {
     max-width: 1140px;
   }
 }
 
 @media (min-width: 1400px) {
+  .subMenu,
   nav {
     max-width: 1242px;
   }
