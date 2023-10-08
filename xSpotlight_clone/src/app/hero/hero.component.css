@@ -1,0 +1,25 @@
+.welcome-visual-1 {
+  left: 0;
+  position: absolute;
+  top: 8rem;
+  -webkit-transform: translateX(-40%) translateY(-50%);
+  transform: translateX(-40%) translateY(-50%);
+  width: 221px;
+}
+
+.welcome-visual-2 {
+  left: 100%;
+  position: absolute;
+  top:25rem;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 360px;
+}
+
+.container-text{
+  padding-top: 7rem;
+}
+.elem{
+ z-index: -1;
+     overflow-x: clip;
+}

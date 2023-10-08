@@ -3,5 +3,62 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  font-family: "Roobert",sans-serif;
+}
+body {
+  margin: 0;
+
+  background: #010101;
+  overflow-x: unset;
+}
+
+.subMenu,
+.container,
+nav {
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  .subMenu,
+  .container,
+  nav {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .subMenu,
+  .container,
+  nav {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .subMenu,
+  .container,
+  nav {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .subMenu,
+  .container,
+  nav {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .subMenu,
+  .container,
+  nav {
+    max-width: 1242px;
+  }
+}
+p {
+  margin: 0px;
+}
