@@ -14,6 +14,8 @@ module.exports = {
         dark: "#161616",
         yellow: "#fbca1c",
         dark2: "#161616",
+        body: "#010101",
+        text_silver: "#8e9396",
       },
     },
   },
