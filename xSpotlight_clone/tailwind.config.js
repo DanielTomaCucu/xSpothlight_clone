@@ -10,6 +10,11 @@ module.exports = {
         xl: "1200px", // Extra large devices (large desktops, 1200px and up)
         "2xl": "1400px", // Extra extra large devices (larger desktops, 1400px and up)
       },
+      padding: {
+        30: "7.5rem", // for px-30
+        50: "12.5rem", // for px-50
+        // ... other custom padding values
+      },
       colors: {
         dark: "#161616",
         yellow: "#fbca1c",
