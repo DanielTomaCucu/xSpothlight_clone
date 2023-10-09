@@ -8,8 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroComponent } from './hero/hero.component';
 import { HomeComponent } from './home/home.component';
+import { TrendingComponent } from './trending/trending.component';
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HeroComponent, HomeComponent],
+  declarations: [AppComponent, NavbarComponent, HeroComponent, HomeComponent, TrendingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
