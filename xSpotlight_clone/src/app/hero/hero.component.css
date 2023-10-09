@@ -10,26 +10,32 @@
 .welcome-visual-2 {
   left: 100%;
   position: absolute;
-  top:25rem;
+  top: 25rem;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   width: 360px;
 }
 
-.container-text{
+.container-text {
   padding-top: 7rem;
 }
-.elem{
- z-index: -1;
-     overflow-x: clip;
+.elem {
+  z-index: -1;
+  overflow-x: clip;
+}
+.line{
+  z-index: -1;
 }
 @media (max-width: 768px) {
   .welcome-visual-2 {
-  left: 100%;
-  position: absolute;
-  top:16rem;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  width: 360px;
+    left: 100%;
+    position: absolute;
+    top: 16rem;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 360px;
+  }
 }
+p {
+  margin: 0px;
 }

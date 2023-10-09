@@ -18,7 +18,8 @@ body {
 .subMenu,
 .container,
 nav {
-  margin: 0 auto;
+ margin: 0 auto;
+ max-width: 95%;
 }
 @media (min-width: 576px) {
   .subMenu,
