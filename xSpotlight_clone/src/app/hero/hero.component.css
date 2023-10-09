@@ -39,3 +39,13 @@
 p {
   margin: 0px;
 }
+@media (max-width: 768px) {
+  .welcome-visual-2 {
+  left: 100%;
+  position: absolute;
+  top:16rem;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 360px;
+}
+}
