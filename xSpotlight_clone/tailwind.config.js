@@ -13,7 +13,6 @@ module.exports = {
       padding: {
         30: "7.5rem", // for px-30
         50: "12.5rem", // for px-50
-        // ... other custom padding values
       },
       colors: {
         dark: "#161616",
@@ -21,6 +20,14 @@ module.exports = {
         dark2: "#161616",
         body: "#010101",
         text_silver: "#8e9396",
+        secondary: "#212121",
+        secondary_hover: "#2c2c2c",
+      },
+      width: {
+        "fit-content": "fit-content",
+      },
+      inset: {
+        "-4vh": "-4vh",
       },
     },
   },
