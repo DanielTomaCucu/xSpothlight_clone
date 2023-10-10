@@ -9,13 +9,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroComponent } from './hero/hero.component';
 import { HomeComponent } from './home/home.component';
 import { TrendingComponent } from './trending/trending.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TrimTextPipe } from './shared/trimText.pipe';
+
+
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HeroComponent, HomeComponent, TrendingComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HeroComponent,
+    HomeComponent,
+    TrendingComponent,
+    TrimTextPipe
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
