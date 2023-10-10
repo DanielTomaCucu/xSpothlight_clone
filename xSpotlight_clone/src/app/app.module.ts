@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { TrendingComponent } from './trending/trending.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TrimTextPipe } from './shared/trimText.pipe';
+import { CollectionsHomeComponent } from './collections-home/collections-home.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TrimTextPipe } from './shared/trimText.pipe';
     HeroComponent,
     HomeComponent,
     TrendingComponent,
-    TrimTextPipe
+    TrimTextPipe,
+    CollectionsHomeComponent
   ],
   imports: [
     BrowserModule,
