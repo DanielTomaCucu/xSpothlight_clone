@@ -29,6 +29,7 @@ module.exports = {
       },
       inset: {
         "-4vh": "-4vh",
+        "25rem": "25rem",
       },
     },
   },
