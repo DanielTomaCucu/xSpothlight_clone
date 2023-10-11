@@ -8,11 +8,13 @@ import { CollectionsHomeService } from './collections-home.service';
 })
 export class CollectionsHomeComponent {
   items: any;
+  item: any;
   constructor(private collectionsService: CollectionsHomeService) {}
   ngOnInit() {
     this.collectionsService.getItem().subscribe((data) => {
       console.log(data);
       this.items = data;
+      this.item = data[0]
     });
   }
 }

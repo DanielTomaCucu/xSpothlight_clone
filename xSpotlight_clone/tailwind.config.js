@@ -4,6 +4,7 @@ module.exports = {
   important: true,
   theme: {
     extend: {
+    
       screens: {
         sm: "576px", // Small devices (landscape phones, 576px and up)
         md: "768px", // Medium devices (tablets, 768px and up)

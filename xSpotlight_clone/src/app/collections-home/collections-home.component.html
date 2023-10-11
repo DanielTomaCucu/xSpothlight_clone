@@ -11,41 +11,68 @@
   </div>
 </div>
 
-<div class="mt-32">
-  <div class="carousel container no-scrollbar z-1" *ngIf="items?.length">
-    <div class="carousel-track flex gap-3 md:gap-6 pt-7">
-      <div
-        class="carousel-slide rounded-md relative"
-        *ngFor="let item of items"
-      >
-        <img
-          [src]="item.media[0].thumbnailUrl"
-          alt="carousel item "
-          class="rounded-md absolute"
-        />
+<div
+  class="border-t border-b border-gray-700 my-12 relative overflow-hidden z-0 backdrop-blurr"
+>
+  <img
+    [src]="item?.media[0].thumbnailUrl"
+    class="absolute top-0 bottom-0 !h-full noIndex blur-3xl opacity-20"
+  />
 
+  <div class="my-12 container">
+    <div class="flex gap-3 content-center items-center">
+      <img
+        [src]="item?.media[0].thumbnailUrl"
+        class="w-20 h-20 rounded-full border-4 border-neutral-800"
+      />
+      <div class="text-white">
+        <div class="flex flex-row flex-nowrap gap-3">
+          <p class="text-2xl md:text-4xl font-bold pb-1">{{ item?.ticker }}</p>
+          <mat-icon class="text-2xl md:text-4xl h-auto">chevron_right</mat-icon>
+        </div>
+
+        <p class="md:text-xl">{{ item?.metadata.description }}</p>
+      </div>
+    </div>
+    <div class="carousel no-scrollbar z-1" *ngIf="items?.length">
+      <div class="carousel-track flex gap-3 md:gap-6 pt-7">
         <div
-          class="absolute bottom-0 p-2 md:p-6 w-full bg-secondary hover:bg-secondary_hover"
+          class="carousel-slide rounded-md relative"
+          *ngFor="let item of items"
         >
-          <div class="flex flex-nowrap gap-2">
-            <p class="text-lg md:text-2xl text-white font-medium truncate">
-              {{ item.name }}
-            </p>
-            <mat-icon class="text-yellow text-sm md:text-md">verified</mat-icon>
-          </div>
+          <img
+            [src]="item.media[0].thumbnailUrl"
+            alt="carousel item "
+            class="rounded-md absolute"
+          />
 
+          <div
+            class="absolute bottom-0 p-4 md:p-6 w-full bg-secondary hover:bg-secondary_hover rounded-b-md"
+          >
+            <div class="flex flex-nowrap gap-2 items-center content-center">
+              <p class="text-lg md:text-2xl text-white font-normal truncate">
+                {{ item.name }}
+              </p>
+              <mat-icon class="text-yellow text-sm md:text-md self-end"
+                >verified</mat-icon
+              >
+            </div>
 
-          <div class="flex justify-between items-center pt-2">
-            <div class="flex gap-3 pl-1 pr-4 py-1 w-fit-content">
-              <img src="./../../assets/bg/user-placeholder.jpeg"
-                class="w-6 border-neutral-700"
+            <div class="flex justify-between content-center items-center pt-2">
+              <div class="flex gap-3 pl-1 pr-4 py-1 w-fit-content items-center">
+                <img
+                  src="./../../assets/bg/user-placeholder.jpeg"
+                  class="w-6 border-neutral-700"
                 />
 
-              <p class="font-semibold justify-end text-yellow pt-1">
-                {{ item.creator | trimText }}
+                <p class="font-normal justify-end text-yellow">
+                  {{ item.creator | trimText }}
+                </p>
+              </div>
+              <p class="text-zinc-400 pt-1 font-normal text-xs md:text-sm">
+                Creator
               </p>
             </div>
-            <p class="text-zinc-400 text-sm pt-1 font-semibold">Creator</p>
           </div>
         </div>
       </div>
