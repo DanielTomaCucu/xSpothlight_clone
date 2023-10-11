@@ -9,8 +9,8 @@ export class TrimTextPipe implements PipeTransform {
       // Adjust this length as necessary
       return value;
     }
-    const start = value.substring(0, 5); // Get the first 5 characters
-    const end = value.substring(value.length - 5); // Get the last 5 characters
+    const start = value.substring(0, 6); // Get the first 5 characters
+    const end = value.substring(value.length - 6); // Get the last 5 characters
     return `${start}...${end}`;
   }
 }

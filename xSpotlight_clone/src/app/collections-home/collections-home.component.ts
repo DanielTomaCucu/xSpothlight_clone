@@ -10,11 +10,15 @@ export class CollectionsHomeComponent {
   items: any;
   item: any;
   constructor(private collectionsService: CollectionsHomeService) {}
-  ngOnInit() {
-    this.collectionsService.getItem().subscribe((data) => {
-      console.log(data);
-      this.items = data;
-      this.item = data[0]
-    });
+
+  ngOnInit(): void {
+    this.collectionsService.getItems().subscribe(
+      (data) => {
+        this.items = data;
+        console.log(this.items);
+        console.log(this.items[1])
+      },
+      (error) => console.error(error)
+    );
   }
 }
