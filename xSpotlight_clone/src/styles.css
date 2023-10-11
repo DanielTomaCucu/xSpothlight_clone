@@ -71,5 +71,8 @@ p {
 
 .no-scrollbar {
     -ms-overflow-style: none;
-    scrollbar-width: none;  
+    scrollbar-width: none;
+}
+.noIndex{
+z-index: -1;
 }
