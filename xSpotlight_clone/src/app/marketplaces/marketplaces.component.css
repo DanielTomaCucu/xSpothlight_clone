@@ -1,0 +1,9 @@
+.home-section-title {
+  background: linear-gradient(270deg, #fbca1c, #8533ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+p {
+  margin: 0px;
+}
