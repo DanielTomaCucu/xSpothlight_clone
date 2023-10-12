@@ -31,12 +31,4 @@ export class MarketplacesComponent {
   ];
   currentSlide = 0;
 
-  nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-  }
-
-  previousSlide() {
-    this.currentSlide =
-      (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-  }
 }
