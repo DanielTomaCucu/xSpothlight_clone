@@ -12,6 +12,7 @@ import { TrendingComponent } from './trending/trending.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TrimTextPipe } from './shared/trimText.pipe';
 import { CollectionsHomeComponent } from './collections-home/collections-home.component';
+import { MarketplacesComponent } from './marketplaces/marketplaces.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CollectionsHomeComponent } from './collections-home/collections-home.co
     HomeComponent,
     TrendingComponent,
     TrimTextPipe,
-    CollectionsHomeComponent
+    CollectionsHomeComponent,
+    MarketplacesComponent
   ],
   imports: [
     BrowserModule,
