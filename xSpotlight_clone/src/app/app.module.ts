@@ -15,6 +15,7 @@ import { CollectionsHomeComponent } from './collections-home/collections-home.co
 import { MarketplacesComponent } from './marketplaces/marketplaces.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { NgxTwitterWidgetsModule } from 'ngx-twitter-widgets';
+import { NewsLetterComponent } from './news-letter/news-letter.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NgxTwitterWidgetsModule } from 'ngx-twitter-widgets';
     CollectionsHomeComponent,
     MarketplacesComponent,
     TweetsComponent,
+    NewsLetterComponent,
   ],
   imports: [
     BrowserModule,

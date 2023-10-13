@@ -58,3 +58,6 @@ p {
 img{
   margin: 0 auto;
 }
+.iosOver{
+  overflow-x: visible;
+}
