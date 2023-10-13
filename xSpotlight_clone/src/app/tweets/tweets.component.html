@@ -1,0 +1,33 @@
+<div class="container flex flex-col items-center">
+  <p class="home-section-title text-3xl md:text-5xl font-bold">
+    Join Us On Social Media
+  </p>
+  <div class="grid grid-cols-12 w-full items-center pt-2">
+    <p
+      class="text-text_silver text-lg md:text-xl md:pt-5 col-start-1 col-end-13 md:col-start-4 md:col-end-10 text-center"
+    >
+      Join us as we explore the vast Multiverse of Web3 projects to the Power of
+      X and reveal new ways of building meaningful and sustainable communities.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-6 p-10 justify-center   ">
+    <ngx-twitter-tweet
+      class="w-full justify-self-center md:justify-self-end"
+      [tweetID]="'1616107998316822528'"
+      [options]="{ text: 'Tweet from Twitter', theme: 'dark' }"
+      (onLoad)="onLoad($event)"
+    >
+    </ngx-twitter-tweet>
+    <ngx-twitter-tweet
+      class="w-full justify-self-center md:justify-self-start"
+      [tweetID]="'1615444737544052745'"
+      [options]="{ text: 'Tweet from Twitter', theme: 'dark' }"
+      (onLoad)="onLoad($event)"
+    >
+    </ngx-twitter-tweet>
+  </div>
+
+
+
+</div>
