@@ -16,6 +16,7 @@ import { MarketplacesComponent } from './marketplaces/marketplaces.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { NgxTwitterWidgetsModule } from 'ngx-twitter-widgets';
 import { NewsLetterComponent } from './news-letter/news-letter.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { NewsLetterComponent } from './news-letter/news-letter.component';
     MarketplacesComponent,
     TweetsComponent,
     NewsLetterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
