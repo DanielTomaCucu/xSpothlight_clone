@@ -49,3 +49,6 @@ p {
   width: 360px;
 }
 }
+.iosOver{
+  overflow-x: visible;
+}
