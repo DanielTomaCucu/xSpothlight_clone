@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrimTextPipe } from './shared/trimText.pipe';
 import { CollectionsHomeComponent } from './collections-home/collections-home.component';
 import { MarketplacesComponent } from './marketplaces/marketplaces.component';
+import { TweetsComponent } from './tweets/tweets.component';
+import { NgxTwitterWidgetsModule } from 'ngx-twitter-widgets';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { MarketplacesComponent } from './marketplaces/marketplaces.component';
     TrendingComponent,
     TrimTextPipe,
     CollectionsHomeComponent,
-    MarketplacesComponent
+    MarketplacesComponent,
+    TweetsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { MarketplacesComponent } from './marketplaces/marketplaces.component';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-
+    NgxTwitterWidgetsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
