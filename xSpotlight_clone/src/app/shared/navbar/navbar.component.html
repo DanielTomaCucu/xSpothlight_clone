@@ -27,11 +27,17 @@
 
     <div class="md:block hidden">
       <ul
-        class="flex text-white bg-black rounded-full py-3 px-4 items-center gap-4"
+        class="flex text-white bg-black rounded-full py-1 px-1 items-center gap-1"
       >
-        <li>Home</li>
-        <li>Blog</li>
-        <li>Explore</li>
+        <li class="px-5 py-3 hover:bg-secondary hover:rounded-full">Home</li>
+        <li class="px-5 py-3 hover:bg-secondary hover:rounded-full">Blog</li>
+        <a
+          [routerLink]="['/explore']"
+          routerLinkActive="bg-secondary rounded-full"
+          ><li class="px-5 py-3 hover:bg-secondary hover:rounded-full">
+            Explore
+          </li></a
+        >
       </ul>
     </div>
     <div class="bg-yellow py-2 rounded-full xs: px-2 md:px-4">
@@ -57,7 +63,7 @@
 
 <div class="subMenu md:hidden mt-8">
   <ul
-    class="flex place-content-stretch justify-evenly  pt-6 px-4 items-center gap-4 text-white"
+    class="flex place-content-stretch justify-evenly pt-6 px-4 items-center gap-4 text-white"
   >
     <li
       class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2 text-white"
@@ -69,10 +75,15 @@
     >
       Blog
     </li>
-    <li
-       class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2"
+    <a
+      [routerLink]="['/explore']"
+      routerLinkActive="bg-dark2 flex-1 rounded-full"
     >
-      Explore
-    </li>
+      <li
+        class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2"
+      >
+        Explore
+      </li></a
+    >
   </ul>
 </div>
