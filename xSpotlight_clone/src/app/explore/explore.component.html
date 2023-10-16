@@ -1,12 +1,12 @@
 <div class="container">
-  <ul class="flex flex-row flex-nowrap mt-8 gap-6 text-2xl font-bold">
-    <li class="text-white group">
+  <ul class="flex flex-row flex-nowrap mt-8 gap-6 text-xl md:text-2xl font-bold overflow-x-scroll">
+    <li class="text-white group whitespace-nowrap">
       NFTs <span class="text-stone-500">{{ nfts | number }}</span>
       <div
         class="h-1 w-full mt-1 bg-stone-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       ></div>
     </li>
-    <li class="text-white group">
+    <li class="text-white group whitespace-nowrap">
       Collections <span class="text-stone-500">{{ collections | number }}</span>
 
       <div
@@ -16,3 +16,4 @@
   </ul>
   <div class="h-[1px] w-full bg-stone-800"></div>
 </div>
+<app-nfts></app-nfts>

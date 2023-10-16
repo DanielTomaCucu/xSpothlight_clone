@@ -1,0 +1,16 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 container pt-8">
+  <ng-container *ngFor="let _ of [].constructor(3); let i = index">
+  <div class="content-center items-center border border-neutral-800 rounded-md p-4">
+    <div class="animate-pulse">
+      <div class="bg-neutral-800 rounded-md h-64"></div>
+      <div class="h-6 mt-4 bg-neutral-800 w-3/4"></div>
+      <div class="flex mt-4">
+        <div class="bg-neutral-800 rounded-full w-10 h-10"></div>
+        <div class="ml-4 flex-1 space-y-2 pt-3">
+          <div class="h-4 bg-neutral-800 w-1/2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+</div>
