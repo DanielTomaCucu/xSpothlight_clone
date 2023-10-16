@@ -18,7 +18,7 @@ import { NewsLetterComponent } from './news-letter/news-letter.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ExploreModule } from './explore/explore.module';
 import { RouterModule } from '@angular/router';
-
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
     HeroComponent,
     HomeComponent,
     TrendingComponent,
-    TrimTextPipe,
+
     CollectionsHomeComponent,
     MarketplacesComponent,
     TweetsComponent,
@@ -42,7 +42,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     NgxTwitterWidgetsModule,
     ExploreModule,
-    RouterModule
+    RouterModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
