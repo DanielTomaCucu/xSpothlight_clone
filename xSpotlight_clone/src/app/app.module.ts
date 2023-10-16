@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -17,6 +16,8 @@ import { TweetsComponent } from './tweets/tweets.component';
 import { NgxTwitterWidgetsModule } from 'ngx-twitter-widgets';
 import { NewsLetterComponent } from './news-letter/news-letter.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ExploreModule } from './explore/explore.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -40,6 +41,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatIconModule,
     HttpClientModule,
     NgxTwitterWidgetsModule,
+    ExploreModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
