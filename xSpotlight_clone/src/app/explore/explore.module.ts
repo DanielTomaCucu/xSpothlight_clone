@@ -5,11 +5,20 @@ import { ExploreRoutingModule } from './explore-routing.module';
 import { ExploreComponent } from './explore.component';
 
 import { RouterModule } from '@angular/router';
-import { NftsComponent } from './nfts/nfts.component';
-import { TrimTextPipe } from '../shared/trimText.pipe';
+
 import { SharedModule } from '../shared/shared.module';
+
+import { NftsModule } from './nfts/nfts.module';
+import { CollectionsModule } from './collections/collections.module';
 @NgModule({
-  declarations: [ExploreComponent, NftsComponent],
-  imports: [CommonModule, ExploreRoutingModule, RouterModule, SharedModule],
+  declarations: [ExploreComponent],
+  imports: [
+    CommonModule,
+    ExploreRoutingModule,
+    RouterModule,
+    SharedModule,
+    NftsModule,
+    CollectionsModule
+  ],
 })
 export class ExploreModule {}
