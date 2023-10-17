@@ -32,7 +32,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     TweetsComponent,
     NewsLetterComponent,
     FooterComponent,
-
   ],
   imports: [
     MatSidenavModule,
