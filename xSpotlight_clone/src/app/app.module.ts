@@ -19,6 +19,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ExploreModule } from './explore/explore.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
+import { NftsModule } from './explore/nfts/nfts.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { SharedModule } from './shared/shared.module';
     NewsLetterComponent,
     FooterComponent,
   ],
-  imports: [
+  imports: [NftsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
