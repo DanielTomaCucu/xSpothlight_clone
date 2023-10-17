@@ -26,6 +26,8 @@ module.exports = {
         secondary_hover: "#2c2c2c",
         yellow_op: "#f9ca1c33",
         dark_wallet: "#0b0b0b",
+        footer_free: "#00c8b0",
+        footer_free_bg: "rgb(0,200,176,.1)",
       },
       width: {
         "fit-content": "fit-content",
