@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,pathMatch:'full' },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'explore',
     loadChildren: () =>
       import('./explore/explore.module').then((m) => m.ExploreModule),
   },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

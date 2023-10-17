@@ -2,23 +2,27 @@
   <ul
     class="flex flex-row flex-nowrap mt-8 gap-6 text-xl md:text-2xl font-bold overflow-x-scroll"
   >
-    <li class="text-white group whitespace-nowrap">
-      <a [routerLink]="['/explore']">
+<li class="text-white group whitespace-nowrap">
+    <a [routerLink]="['/explore']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
         NFTs <span class="text-stone-500">{{ nfts | number }}</span>
-        <div
-          class="h-1 w-full mt-1 bg-stone-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        ></div
-      ></a>
-    </li>
+        <div [class.bg-yellow]="isActive('/explore')"
+            class="h-1 w-full mt-1 bg-stone-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            [class.opacity-100]="isActive('/explore')">
+        </div>
+    </a>
+</li>
+
+
+
     <li class="text-white group whitespace-nowrap">
-      <a routerLink="/explore/collections">
+      <a routerLink="/explore/collections"  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
         Collections
         <span class="text-stone-500">{{ collections | number }}</span>
 
-        <div
-          class="h-1 w-full bg-stone-700 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        ></div
-      ></a>
+        <div [class.bg-yellow]="isActive('/explore/collections')"
+            class="h-1 w-full mt-1 bg-stone-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            [class.opacity-100]="isActive('/explore/collections')">
+        </div></a>
     </li>
   </ul>
   <div class="h-[1px] w-full bg-stone-800"></div>
