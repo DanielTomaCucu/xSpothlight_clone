@@ -35,7 +35,7 @@ import { NftsModule } from './explore/nfts/nfts.module';
     NewsLetterComponent,
     FooterComponent,
   ],
-  imports: [NftsModule,
+  imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
