@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +8,14 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   showSearchBar = false;
-
+  menuOpen = false;
   toggleSearchBar(): void {
     this.showSearchBar = !this.showSearchBar;
+  }
+  @Input() drawer!: MatDrawer;
+
+  toggleDrawer() {
+    this.menuOpen = !this.menuOpen;
+    this.drawer.toggle();
   }
 }

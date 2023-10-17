@@ -1,0 +1,28 @@
+
+<div  class="subMenu md:hidden mt-1 bg-transparent">
+  <ul class="flex place-content-stretch justify-evenly pt-6 px-4 items-center gap-1 text-white">
+  <li class="flex-1
+   ">
+    <a [routerLink]="['/']"
+      routerLinkActive="bg-dark2"
+      [routerLinkActiveOptions]="{exact:true}"
+      class="hover:rounded-full  hover:bg-dark2 flex justify-center items-center rounded-full py-2 text-white"
+    >
+      Home
+    </a>
+  </li>
+  <li class="flex-1 hover:bg-dark2 flex justify-center items-center rounded-full py-2 text-white">
+    Blog
+  </li>
+  <li class="flex-1 hover:rounded-full ">
+    <a
+      [routerLink]="['/explore']"
+      routerLinkActive="bg-dark2"
+      class=" hover:rounded-full hover:bg-dark2 flex justify-center items-center rounded-full py-2 text-white"
+    >
+      Explore
+    </a>
+  </li>
+</ul>
+
+</div>

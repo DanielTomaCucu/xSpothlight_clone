@@ -39,3 +39,6 @@ nav {
     max-width: 1242px;
   }
 }
+.active {
+  background-color: #fff;
+}

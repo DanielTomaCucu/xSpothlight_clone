@@ -4,7 +4,13 @@
     class="flex w-full gap-3 py-4 px-3 justify-center items-center"
   >
     <div class="w-28">
-      <img src="./../assets/logos/xspotlight-light.svg" class="bg-dark" />
+      <a
+        [routerLink]="['/']"
+        routerLinkActive="bg-dark2 flex-1 rounded-full"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <img src="./../assets/logos/xspotlight-light.svg" class="bg-dark"
+      /></a>
     </div>
     <div class="flex-1 lg:block hidden">
       <div class="flex items-center gap-3 bg-black p-3 w-full rounded-full">
@@ -27,17 +33,31 @@
 
     <div class="md:block hidden">
       <ul
-        class="flex text-white bg-black rounded-full py-3 px-4 items-center gap-4"
+        class="flex text-white bg-black rounded-full py-1 px-1 items-center gap-1"
       >
-        <li>Home</li>
-        <li>Blog</li>
-        <li>Explore</li>
+        <a
+          [routerLink]="['/']"
+          routerLinkActive="bg-dark2 flex-1 rounded-full"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <li class="px-5 py-3 hover:bg-secondary hover:rounded-full">
+            Home
+          </li></a
+        >
+        <li class="px-5 py-3 hover:bg-secondary hover:rounded-full">Blog</li>
+        <a
+          [routerLink]="['/explore']"
+          routerLinkActive="bg-secondary rounded-full"
+          ><li class="px-5 py-3 hover:bg-secondary hover:rounded-full">
+            Explore
+          </li></a
+        >
       </ul>
     </div>
-    <div class="bg-yellow py-2 rounded-full xs: px-2 md:px-4">
-      <button class="flex">
+    <div class="bg-yellow p-2 md:p-3 rounded-full  md:px-6">
+      <button class="flex" (click)="toggleDrawer()">
         <mat-icon>bolt</mat-icon>
-        <p class="md:block hidden">Connect</p>
+        <p class="md:block hidden font-bold text-base">Connect</p>
       </button>
     </div>
   </nav>
@@ -53,26 +73,4 @@
     </div>
     <mat-icon (click)="toggleSearchBar()" class="text-white">close</mat-icon>
   </nav>
-</div>
-
-<div class="subMenu md:hidden mt-8">
-  <ul
-    class="flex place-content-stretch justify-evenly  pt-6 px-4 items-center gap-4 text-white"
-  >
-    <li
-      class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2 text-white"
-    >
-      Home
-    </li>
-    <li
-      class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2 text-white"
-    >
-      Blog
-    </li>
-    <li
-       class="hover:bg-dark2 flex-1 flex justify-center items-center rounded-full py-2"
-    >
-      Explore
-    </li>
-  </ul>
 </div>

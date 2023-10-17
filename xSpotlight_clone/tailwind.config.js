@@ -4,7 +4,6 @@ module.exports = {
   important: true,
   theme: {
     extend: {
-    
       screens: {
         sm: "576px", // Small devices (landscape phones, 576px and up)
         md: "768px", // Medium devices (tablets, 768px and up)
@@ -19,11 +18,14 @@ module.exports = {
       colors: {
         dark: "#161616",
         yellow: "#fbca1c",
+        yellow_hover: "#fcd64e",
         dark2: "#161616",
         body: "#010101",
         text_silver: "#8e9396",
         secondary: "#212121",
         secondary_hover: "#2c2c2c",
+        yellow_op: "#f9ca1c33",
+        dark_wallet: "#0b0b0b",
       },
       width: {
         "fit-content": "fit-content",
@@ -32,7 +34,23 @@ module.exports = {
         "-4vh": "-4vh",
         "25rem": "25rem",
       },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          scrollbarWidth: "none",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };
