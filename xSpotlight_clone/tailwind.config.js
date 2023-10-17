@@ -4,7 +4,6 @@ module.exports = {
   important: true,
   theme: {
     extend: {
-    
       screens: {
         sm: "576px", // Small devices (landscape phones, 576px and up)
         md: "768px", // Medium devices (tablets, 768px and up)
@@ -24,6 +23,7 @@ module.exports = {
         text_silver: "#8e9396",
         secondary: "#212121",
         secondary_hover: "#2c2c2c",
+        yellow_op: "#f9ca1c33",
       },
       width: {
         "fit-content": "fit-content",
