@@ -54,10 +54,10 @@
         >
       </ul>
     </div>
-    <div class="bg-yellow py-2 rounded-full xs: px-2 md:px-4">
-      <button class="flex">
+    <div class="bg-yellow p-2 md:p-3 rounded-full  md:px-6">
+      <button class="flex" (click)="toggleDrawer()">
         <mat-icon>bolt</mat-icon>
-        <p class="md:block hidden">Connect</p>
+        <p class="md:block hidden font-bold text-base">Connect</p>
       </button>
     </div>
   </nav>
@@ -73,33 +73,4 @@
     </div>
     <mat-icon (click)="toggleSearchBar()" class="text-white">close</mat-icon>
   </nav>
-</div>
-
-<div class="subMenu md:hidden mt-8">
-  <ul class="flex place-content-stretch justify-evenly pt-6 px-4 items-center gap-4 text-white">
-  <li class="flex-1
-   ">
-    <a
-      [routerLink]="['/']"
-      routerLinkActive="bg-dark2"
-      [routerLinkActiveOptions]="{exact:true}"
-      class="hover:rounded-full  hover:bg-dark2 flex justify-center items-center rounded-full py-2 text-white"
-    >
-      Home
-    </a>
-  </li>
-  <li class="flex-1 hover:bg-dark2 flex justify-center items-center rounded-full py-2 text-white">
-    Blog
-  </li>
-  <li class="flex-1 hover:rounded-full ">
-    <a
-      [routerLink]="['/explore']"
-      routerLinkActive="bg-dark2"
-      class=" hover:rounded-full hover:bg-dark2 flex justify-center items-center rounded-full py-2 text-white"
-    >
-      Explore
-    </a>
-  </li>
-</ul>
-
 </div>

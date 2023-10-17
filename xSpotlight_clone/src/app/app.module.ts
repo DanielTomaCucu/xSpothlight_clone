@@ -9,7 +9,6 @@ import { HeroComponent } from './hero/hero.component';
 import { HomeComponent } from './home/home.component';
 import { TrendingComponent } from './trending/trending.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TrimTextPipe } from './shared/trimText.pipe';
 import { CollectionsHomeComponent } from './collections-home/collections-home.component';
 import { MarketplacesComponent } from './marketplaces/marketplaces.component';
 import { TweetsComponent } from './tweets/tweets.component';
@@ -19,7 +18,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ExploreModule } from './explore/explore.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
-import { NftsModule } from './explore/nfts/nfts.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -28,14 +27,15 @@ import { NftsModule } from './explore/nfts/nfts.module';
     HeroComponent,
     HomeComponent,
     TrendingComponent,
-
     CollectionsHomeComponent,
     MarketplacesComponent,
     TweetsComponent,
     NewsLetterComponent,
     FooterComponent,
+
   ],
   imports: [
+    MatSidenavModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -1,4 +1,75 @@
-<app-navbar class="w-full "></app-navbar>
+<app-navbar [drawer]="drawer" class="w-full fixed top-0 z-10"></app-navbar>
+<mat-drawer-container class="overflow-hidden">
+  <mat-drawer
+    #drawer
+    position="end"
+    class="w-full sm:w-[470px] bg-dark p-6 pt-20"
+  >
+    <div class="flex flex-col gap-3 mt-10">
+      <p class="text-white text-center text-md font-bold">
+        Connect to a wallet
+      </p>
+      <a
+        href="https://chrome.google.com/webstore/detail/multiversx-defi-wallet/dngmlblcodfobpdpecaadgfbcggfjfnm"
+        target="_blank"
+      >
+        <div
+          class="flex flex-row flex-nowrap gap-4 group bg-dark_wallet rounded-lg py-5 px-3 content-center items-center border-dark_wallet hover:border-yellow border-1"
+        >
+          <img src="./../assets/logos/defi_wallet.svg" class="text-yellow" />
+          <p class="text-white justify-self-start text-md grow">
+            MultiversX DeFi Wallet
+          </p>
+          <img
+            src="./../assets/logos/right_arrow.svg"
+            class="text-yellow text-sm h-6 justify-self-end pr-4 group-hover:translate-x-4 duration-300"
+          /></div
+      ></a>
+      <a
+        href="https://xportal.com/app?_branch_match_id=1039404845413872150&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXryjILypJzNFLLCjQy8nMy9YHMgBdTMwfHAAAAA%3D%3D"
+        target="_blank"
+      >
+        <div
+          class="flex flex-row flex-nowrap gap-4 group bg-dark_wallet rounded-lg py-5 px-3 content-center items-center border-dark_wallet hover:border-yellow border-1"
+        >
+          <img src="./../assets/logos/mobile_wallet.svg" class="text-yellow" />
+          <p class="text-white justify-self-start text-md grow">
+            xPortal Mobile Wallet
+          </p>
+          <img
+            src="./../assets/logos/right_arrow.svg"
+            class="text-yellow text-sm h-6 justify-self-end pr-4 group-hover:translate-x-4 duration-300"
+          />
+        </div>
+      </a>
+      <div
+        class="flex flex-row flex-nowrap gap-4 group bg-dark_wallet rounded-lg py-5 px-3 content-center items-center border-dark_wallet hover:border-yellow border-1"
+      >
+        <img src="./../assets/logos/ledger.svg" class="text-yellow" />
+        <p class="text-white justify-self-start text-md grow">Ledger</p>
+        <img
+          src="./../assets/logos/right_arrow.svg"
+          class="text-yellow text-sm h-6 justify-self-end pr-4 group-hover:translate-x-4 duration-300"
+        />
+      </div>
+      <a href="https://wallet.multiversx.com/" target="_blank">
+        <div
+          class="flex flex-row flex-nowrap gap-4 group bg-dark_wallet rounded-lg py-5 px-3 content-center items-center border-dark_wallet hover:border-yellow border-1"
+        >
+          <img src="./../assets/logos/web_wallet.svg" class="text-yellow" />
+          <p class="text-white justify-self-start text-md grow">
+            MultiversX Web Wallet
+          </p>
+          <img
+            src="./../assets/logos/right_arrow.svg"
+            class="text-yellow text-sm h-6 justify-self-end pr-4 group-hover:translate-x-4 duration-300"
+          /></div
+      ></a>
+    </div>
+  </mat-drawer>
 
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+  <mat-drawer-content class="bg-black pt-24">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>
