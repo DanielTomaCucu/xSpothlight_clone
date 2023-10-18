@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { CollectinsService } from './collectins.service';
 import { Subscription, concatMap, forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-collections',
@@ -12,7 +13,10 @@ export class CollectionsComponent {
   subs: Subscription;
   loading = false;
 
-  constructor(private collectionsService: CollectinsService) {
+  constructor(
+    private collectionsService: CollectinsService,
+    private router: Router
+  ) {
     this.subs = new Subscription();
   }
 
@@ -51,10 +55,13 @@ export class CollectionsComponent {
       .subscribe((data) => {
         this.collections = [...this.collections, ...[].concat(...data)];
         this.loading = false;
-
+        console.log(this.collections)
       });
   }
 
+  redirectToNfts(param: string) {
+    this.router.navigate(['/explore/collections', param]);
+  }
   ngOnDestroy() {
     this.subs.unsubscribe();
   }

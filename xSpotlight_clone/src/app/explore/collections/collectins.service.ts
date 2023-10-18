@@ -13,7 +13,6 @@ export class CollectinsService {
 
   constructor(private http: HttpClient) {}
   fetchCollectionIds(): Observable<any> {
-    this.page += 10;
     return this.http
       .get<any>(
         `${this.baseApi}/collections?from=${this.page}&size=10&sort=verifiedAndHolderCount`
@@ -21,6 +20,7 @@ export class CollectinsService {
       .pipe(
         tap((data) => {
           this.collections = data;
+          this.page += 10;
         })
       );
   }
