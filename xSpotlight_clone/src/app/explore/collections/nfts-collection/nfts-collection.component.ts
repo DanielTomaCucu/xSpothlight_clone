@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { NftsCollectionService } from './nfts-collection.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nfts-collection',
@@ -14,7 +14,8 @@ export class NftsCollectionComponent {
   collectionDetail: any = '';
   constructor(
     private nftsCollectionService: NftsCollectionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit() {
     this.loadMore();
@@ -48,7 +49,7 @@ export class NftsCollectionComponent {
         console.log(data);
       });
   }
-  redirectToExplorer(collection:string) {
-    
+  redirectToUser(user:string) {
+this.router.navigate(['', user]);
   }
 }

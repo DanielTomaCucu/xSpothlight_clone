@@ -9,6 +9,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./explore/explore.module').then((m) => m.ExploreModule),
   },
+  {
+    path: ':user',
+    loadChildren: () =>
+      import('./shared/user/user.module').then((m) => m.UserModule),
+    
+  },
   { path: '**', redirectTo: '' },
 ];
 

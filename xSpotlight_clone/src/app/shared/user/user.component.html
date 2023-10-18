@@ -1,0 +1,62 @@
+<app-navbar-mobile></app-navbar-mobile>
+
+<div class="container pt-14">
+  <div class="relative w-full">
+    <img src="./../../../assets/bg/cover.jpg" class="rounded-3xl h-[200px]" />
+    <div
+      class="top-[65%] left-1/2 absolute transform -translate-x-1/2 flex flex-col gap-2 items-center"
+    >
+      <img
+        src="./../../../assets/bg/user-placeholder.jpeg"
+        class="border-8 border-black rounded-4xl"
+      />
+      <div class="flex flex-row gap-2 items-center">
+        <p class="text-white center w-fit-conten text-3xl font-bold">
+          {{ userId! | trimText }}
+        </p>
+        <img src="./../../../assets/logos/redirect.svg" class="h-5" />
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-50">
+    <ul
+      class="flex flex-row flex-nowrap mt-8 gap-6 text-xl md:text-2xl font-bold overflow-x-scroll no-scrollbar"
+    >
+      <li class="text-white group whitespace-nowrap">
+        <a
+          [routerLink]="['/', userId ]"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Collected
+          <span class="text-stone-500">{{ nfts.collected | number }}</span>
+          <div
+            [class.bg-yellow]="isActive(userId)"
+            class="h-1 w-full mt-1 bg-stone-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            [class.opacity-100]="isActive(userId)"
+          ></div>
+        </a>
+      </li>
+
+      <li class="text-white group whitespace-nowrap">
+        <a
+          routerLink="/explore/collections"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Created
+          <span class="text-stone-500">{{ nfts.created | number }}</span>
+
+          <div
+            [class.bg-yellow]="isActive('/explore/collections')"
+            class="h-1 w-full mt-1 bg-stone-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            [class.opacity-100]="isActive('/explore/collections')"
+          ></div
+        ></a>
+      </li>
+    </ul>
+    <div class="h-[1px] w-full bg-stone-800"></div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
