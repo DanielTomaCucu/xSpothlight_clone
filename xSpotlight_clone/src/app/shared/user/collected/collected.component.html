@@ -1,8 +1,3 @@
-
-<div *ngIf="loading && nfts.length == []; else dataLoaded">
-<app-skeleton-loader></app-skeleton-loader>
-</div>
-<ng-template #dataLoaded>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 container pt-8">
 <div
   *ngFor="let nft of nfts; let i = index"
@@ -31,8 +26,8 @@
             src="./../../assets/bg/user-placeholder.jpeg"
             class="w-6 border-neutral-700 rounded-full"
           />
-          <p class="md:text-lg font-light justify-end text-yellow" (click)="redirectToUser(nft?.creator)">
-            {{ nft?.creator |trimText }}
+          <p class="md:text-lg font-base justify-end text-yellow" >
+            {{ nft?.creator | trimText }}
           </p>
         </div>
         <p class="text-zinc-400 pt-1 font-normal text-xs md:text-sm">Creator</p>
@@ -40,8 +35,4 @@
     </div>
   </div>
 </div>
-
-
 </div>
-</ng-template>
-

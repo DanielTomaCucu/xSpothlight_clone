@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { NftsService } from './nfts.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nfts',
@@ -9,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class NftsComponent {
   subs: Subscription;
-  constructor(private nftsService: NftsService) {
+  constructor(private nftsService: NftsService, private router: Router) {
     this.subs = new Subscription();
   }
   nfts: any = [];
@@ -36,6 +37,9 @@ export class NftsComponent {
       this.nfts = [...this.nfts, ...data];
       this.loading = false;
     });
+  }
+  redirectToUser(user: string) {
+    this.router.navigate(['', user]);
   }
   ngOnDestroy() {
     this.subs.unsubscribe();

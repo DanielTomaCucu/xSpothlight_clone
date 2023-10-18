@@ -70,7 +70,7 @@
                   src="./../../assets/bg/user-placeholder.jpeg"
                   class="w-6 border-neutral-700 rounded-full"
                 />
-                <p class="md:text-lg font-normal justify-end text-yellow">
+                <p class="md:text-lg font-normal justify-end text-yellow" (click)="redirectToUser( nft?.creator)">
                   {{ nft?.creator | trimText }}
                 </p>
               </div>
