@@ -21,6 +21,14 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'collections/:param',
+    loadChildren: () =>
+      import('./collections/nfts-collection/nfts-collection.module').then(
+        (m) => m.NftsCollectionModule
+      ),
+    data: { isChildRoute: true },
+  },
 ];
 
 @NgModule({
