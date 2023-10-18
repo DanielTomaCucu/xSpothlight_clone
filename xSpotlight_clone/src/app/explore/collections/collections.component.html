@@ -9,7 +9,7 @@
       *ngFor="let collection of collections; let i = index"
       class="content-center relative items-center border border-secondary rounded-md group"
     >
-      <div
+      <div (click)="redirectToNfts(collection.collection)"
         class="absolute top-0 bottom-0 w-full z-1 bg-gradient-to-t from-neutral-900 to-transparent"
       ></div>
       <img
