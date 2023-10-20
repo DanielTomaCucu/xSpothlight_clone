@@ -1,3 +1,7 @@
+<div *ngIf="loading; else data">
+  <app-skeleton-loader></app-skeleton-loader>
+</div>
+<ng-template #data>
 <div class="container flex flex-col items-center pt-30 md:pt-60">
   <p class="home-section-title text-3xl md:text-5xl text-center font-bold">
     Featured Collections
@@ -47,7 +51,6 @@
       </div>
     </div>
 
-    <!-- Inner loop: iterate over the objects in the current sub-array -->
     <div class="carousel no-scrollbar z-1" *ngIf="collection?.length">
       <div class="carousel-track flex gap-3 md:gap-6 pt-11">
         <div
@@ -93,3 +96,4 @@
     </div>
   </div>
 </div>
+</ng-template>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ExploreService } from './explore.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-explore',
@@ -10,12 +11,14 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 export class ExploreComponent {
   collections: number = 0;
   nfts: number = 0;
+  subs: Subscription;
   constructor(
     private exploreService: ExploreService,
     private router: Router,
-    private activatedRoute:ActivatedRoute) {}
+    private activatedRoute: ActivatedRoute
+  ) {this.subs= new Subscription}
   ngOnInit() {
-    this.exploreService
+  this.subs=  this.exploreService
       .getCollections()
       .subscribe((data) => (this.collections = data));
     this.exploreService.getNFTs().subscribe((data) => (this.nfts = data));
@@ -28,5 +31,8 @@ export class ExploreComponent {
       (segment) => segment.path
     );
     return urlSegments.includes('collections') && urlSegments.length > 1;
+  }
+  ngOnDestroy() {
+    this.subs.unsubscribe()
   }
 }

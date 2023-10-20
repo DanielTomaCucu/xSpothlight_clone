@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -13,14 +14,16 @@ export class UserComponent {
     created: 0,
     collected: 0,
   };
+  subs: Subscription;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService
-  ) {}
+  ) {
+    this.subs = new Subscription();
+  }
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get('user')!;
-    console.log(this.userId);
     localStorage.setItem('userId', this.userId);
     this.getUserData();
   }
@@ -30,11 +33,18 @@ export class UserComponent {
   }
 
   getUserData() {
-    this.userService.getNFTsCollected(this.userId).subscribe((data) => {
-      this.nfts.collected = data;
-    });
-    this.userService.getNFTsCreated(this.userId).subscribe((data) => {
-      this.nfts.created = data.totalNftCount;
-    });
+    this.subs.add(
+      this.userService.getNFTsCollected(this.userId).subscribe((data) => {
+        this.nfts.collected = data;
+      })
+    );
+    this.subs.add(
+      this.userService.getNFTsCreated(this.userId).subscribe((data) => {
+        this.nfts.created = data.totalNftCount;
+      })
+    );
+  }
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 }

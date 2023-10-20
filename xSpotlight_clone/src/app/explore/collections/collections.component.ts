@@ -55,7 +55,6 @@ export class CollectionsComponent {
       .subscribe((data) => {
         this.collections = [...this.collections, ...[].concat(...data)];
         this.loading = false;
-        console.log(this.collections)
       });
   }
 
