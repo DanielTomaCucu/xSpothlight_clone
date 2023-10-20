@@ -1,3 +1,8 @@
+
+<div *ngIf="loading; else data">
+  <app-skeleton-loader></app-skeleton-loader>
+</div>
+<ng-template #data>
 <div class="container flex flex-col items-center pt-30">
   <p class="home-section-title text-3xl md:text-5xl font-bold text-center">
     Trending Collections
@@ -62,3 +67,4 @@
     </div>
   </div>
 </div>
+</ng-template>

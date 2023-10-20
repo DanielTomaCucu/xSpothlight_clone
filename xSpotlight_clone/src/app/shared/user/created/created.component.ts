@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreatedService } from './created.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-created',
@@ -10,13 +11,21 @@ import { ActivatedRoute } from '@angular/router';
 export class CreatedComponent implements OnInit {
   userId: string | null = '';
   nfts: any = [];
-  constructor(private createdService: CreatedService) {}
+  subs: Subscription;
+
+  constructor(private createdService: CreatedService) {
+    this.subs = new Subscription();
+  }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')!;
-    this.createdService.getCreatedNfts(this.userId).subscribe((data) => {
-      console.log(data);
-      this.nfts = data;
-    });
+    this.subs = this.createdService
+      .getCreatedNfts(this.userId)
+      .subscribe((data) => {
+        this.nfts = data;
+      });
+  }
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 }

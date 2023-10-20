@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { CollectedService } from './collected.service';
 import { ActivatedRoute } from '@angular/router';
-import { data } from 'cypress/types/jquery';
+import { Subscriber, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-collected',
@@ -12,11 +12,11 @@ export class CollectedComponent {
   nfts: any = [];
   loading: boolean = false;
   nextCall: boolean = true;
-
+  subs: Subscription;
   constructor(
     private collectedService: CollectedService,
     private route: ActivatedRoute
-  ) {}
+  ) {this.subs= new Subscription}
 
   ngOnInit() {
     this.loadMore();
@@ -36,7 +36,7 @@ export class CollectedComponent {
     this.loading = true;
     if (this.nextCall) {
       let user: string = this.route.snapshot.paramMap.get('user')!;
-      this.collectedService.getCollectionUser(user).subscribe((data) => {
+    this.subs=  this.collectedService.getCollectionUser(user).subscribe((data) => {
       (this.nfts = [...this.nfts, ...data]);
         this.loading = false;
         if (data.length < 10) {
@@ -44,5 +44,8 @@ export class CollectedComponent {
         }
       });
     }
+  }
+  ngOnDestroy() {
+    this.subs.unsubscribe()
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-tweets',

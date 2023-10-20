@@ -35,6 +35,6 @@ export class UserService {
       );
   }
   getCollectionKeys(): string[] {
-    return this.collectionKeys; // Provide a method to access collectionKeys
+    return this.collectionKeys;
   }
 }
