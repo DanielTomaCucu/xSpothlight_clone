@@ -13,7 +13,7 @@ const routes: Routes = [
     path: ':user',
     loadChildren: () =>
       import('./shared/user/user.module').then((m) => m.UserModule),
-    
+
   },
   { path: '**', redirectTo: '' },
 ];

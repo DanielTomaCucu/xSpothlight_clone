@@ -21,6 +21,7 @@ export class UserComponent {
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get('user')!;
     console.log(this.userId);
+    localStorage.setItem('userId', this.userId);
     this.getUserData();
   }
 
