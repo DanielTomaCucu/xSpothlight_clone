@@ -35,6 +35,6 @@ export class UserService {
       );
   }
   getCollectionKeys(): string[] {
-    return this.collectionKeys; 
+    return this.collectionKeys;
   }
 }
