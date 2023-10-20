@@ -8,6 +8,8 @@ import { environment } from 'src/app/environments/environment';
 })
 export class UserService {
   baseApi = environment.apiUrl;
+  private collectionKeys: string[] = [];
+
   constructor(private http: HttpClient) {}
   getNFTsCollected(user: string): Observable<any> {
     return this.http.get<any>(`${this.baseApi}/accounts/${user}/nfts/count`);
@@ -17,6 +19,7 @@ export class UserService {
       .get<any>(`${this.baseApi}/accounts/${user}/collections`)
       .pipe(
         map((data) => {
+          this.collectionKeys = data.map((item: any) => item.collection); // Store collectionKeys
           return {
             totalNftCount: data.reduce((acc: number, item: any) => {
               const nftCount =
@@ -26,9 +29,12 @@ export class UserService {
                   : 0;
               return acc + nftCount;
             }, 0),
-            collectionKeys: data.map((item: any) => item.collection),
+            collectionKeys: this.collectionKeys,
           };
         })
       );
+  }
+  getCollectionKeys(): string[] {
+    return this.collectionKeys; // Provide a method to access collectionKeys
   }
 }

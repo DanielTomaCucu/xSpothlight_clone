@@ -41,7 +41,7 @@
 
       <li class="text-white group whitespace-nowrap">
         <a
-          routerLink="/explore/collections"
+          [routerLink]="['/', userId, 'created']"
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{ exact: true }"
         >
@@ -49,9 +49,9 @@
           <span class="text-stone-500">{{ nfts.created | number }}</span>
 
           <div
-            [class.bg-yellow]="isActive('/explore/collections')"
+            [class.bg-yellow]="isActive(userId)"
             class="h-1 w-full mt-1 bg-stone-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            [class.opacity-100]="isActive('/explore/collections')"
+            [class.opacity-100]="isActive( userId)"
           ></div
         ></a>
       </li>
