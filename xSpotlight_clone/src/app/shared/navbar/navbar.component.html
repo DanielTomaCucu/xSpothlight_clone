@@ -44,7 +44,14 @@
             Home
           </li></a
         >
-        <li class="px-5 py-3 hover:bg-secondary hover:rounded-full">Blog</li>
+        <a
+          [routerLink]="['/blog']"
+          routerLinkActive="bg-secondary rounded-full"
+        >
+          <li class="px-5 py-3 hover:bg-secondary hover:rounded-full">
+            Blog
+          </li></a
+        >
         <a
           [routerLink]="['/explore']"
           routerLinkActive="bg-secondary rounded-full"
@@ -54,7 +61,7 @@
         >
       </ul>
     </div>
-    <div class="bg-yellow p-2 md:p-3 rounded-full  md:px-6">
+    <div class="bg-yellow p-2 md:p-3 rounded-full md:px-6">
       <button class="flex" (click)="toggleDrawer()">
         <mat-icon>bolt</mat-icon>
         <p class="md:block hidden font-bold text-base">Connect</p>

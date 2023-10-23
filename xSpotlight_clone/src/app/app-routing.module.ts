@@ -10,10 +10,14 @@ const routes: Routes = [
       import('./explore/explore.module').then((m) => m.ExploreModule),
   },
   {
+    path: 'blog',
+    loadChildren: () =>
+      import('./blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
     path: ':user',
     loadChildren: () =>
       import('./shared/user/user.module').then((m) => m.UserModule),
-
   },
   { path: '**', redirectTo: '' },
 ];
