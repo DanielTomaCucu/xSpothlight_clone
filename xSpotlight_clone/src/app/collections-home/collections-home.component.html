@@ -25,13 +25,13 @@
   />
 
   <div class="my-16 container">
-    <div class="flex gap-3 content-center items-center">
-      <img
+    <div class="flex gap-3 content-center items-center " >
+      <img (click)="redirectToNfts(collection[0]?.collection)"
         [src]="collection[0]?.media[0]?.thumbnailUrl"
-        class="w-24 h-24 rounded-full border-8 border-gray-900"
+        class="w-24 h-24 rounded-full border-8 border-gray-900 cursor-pointer"
       />
       <div class="text-white pb-5">
-        <div class="flex flex-row flex-nowrap gap-3">
+        <div class="flex flex-row flex-nowrap gap-3 cursor-pointer" (click)="redirectToNfts(collection[0]?.collection)">
           <p class="text-2xl md:text-4xl font-bold pb-1">
             {{ collection[0]?.ticker }}
           </p>
@@ -54,8 +54,8 @@
     <div class="carousel no-scrollbar z-1" *ngIf="collection?.length">
       <div class="carousel-track flex gap-3 md:gap-6 pt-11">
         <div
-          class="carousel-slide rounded-md relative overflow-hidden"
-          *ngFor="let item of collection"
+          class="carousel-slide rounded-md relative overflow-hidden cursor-pointer"
+          *ngFor="let item of collection" (click)="redirectToNftDetail(item.ticker)"
         >
           <img
             [src]="item?.media[0]?.thumbnailUrl"
@@ -77,7 +77,7 @@
             </div>
 
             <div class="flex justify-between content-center items-center pt-2">
-              <div class="flex gap-3 pl-1 pr-4 py-1 w-fit-content items-center">
+              <div class="flex gap-3 pl-1 pr-4 py-1 w-fit-content items-center cursor-pointer" (click)="redirectToUser( item.creator)">
                 <img
                   src="./../../assets/bg/user-placeholder.jpeg"
                   class="w-6 border-neutral-700 rounded-full"

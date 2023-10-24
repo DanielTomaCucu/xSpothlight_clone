@@ -58,6 +58,9 @@ export class NftsCollectionComponent {
   redirectToUser(user: string) {
     this.router.navigate(['', user]);
   }
+  redirectToNftDetail(nftId: string) {
+    this.router.navigate(['nft', nftId]);
+  }
   ngOnDestroy() {
     this.subs.unsubscribe();
   }

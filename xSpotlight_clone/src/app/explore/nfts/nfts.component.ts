@@ -36,10 +36,14 @@ export class NftsComponent {
     this.subs = this.nftsService.getNfts().subscribe((data) => {
       this.nfts = [...this.nfts, ...data];
       this.loading = false;
+      console.log(this.nfts);
     });
   }
   redirectToUser(user: string) {
     this.router.navigate(['', user]);
+  }
+  redirectToNftDetail(nftId: string) {
+    this.router.navigate(['nft', nftId]);
   }
   ngOnDestroy() {
     this.subs.unsubscribe();

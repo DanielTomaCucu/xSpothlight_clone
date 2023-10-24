@@ -43,8 +43,8 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8">
       <div
-        *ngFor="let nft of nfts; let i = index"
-        class="content-center items-center border border-secondary rounded-md group"
+        *ngFor="let nft of nfts; let i = index" (click)="redirectToNftDetail(nft.ticker)"
+        class="content-center items-center border border-secondary rounded-md group cursor-pointer"
       >
         <div class="overflow-hidden">
           <div class="overflow-hidden">
@@ -70,7 +70,7 @@
                   src="./../../assets/bg/user-placeholder.jpeg"
                   class="w-6 border-neutral-700 rounded-full"
                 />
-                <p class="md:text-lg font-normal justify-end text-yellow" (click)="redirectToUser( nft?.creator)">
+                <p class="md:text-lg font-normal justify-end text-yellow cursor-pointer" (click)="redirectToUser( nft?.creator)">
                   {{ nft?.creator | trimText }}
                 </p>
               </div>

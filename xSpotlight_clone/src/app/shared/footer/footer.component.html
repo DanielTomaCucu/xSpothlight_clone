@@ -1,58 +1,108 @@
 <div class="bg-secondary">
-<div class="grid grid-cols-1  gap-8 md:grid-cols-3 mt-24 px-3 pt-12 container">
-  <div class="col-start-1 col-end-2 flex flex-col content-center items-center md:items-start">
-    <img src="./../../../assets/logos/xspotlight-light.svg" class="h-6 w-auto"/>
-    <p class="text-sm text-zinc-400 self-center md:self-start py-2">
-      Own a piece of Web3 culture.
-    </p>
-    <p class="text-zinc-400 text-center md:text-left font-thin py-2 px-3 md:px-0">
-      The front-page of the MultiversX NFT ecosystem. Create, buy and sell NFTs. Collaborate with fellow collectors and creators. Be part of the genesis of Web3 culture and own a piece of it.
-    </p>
-    <div class="text-zinc-500 flex flex-row gap-6 content-center justify-center text-lg py-5">
-      <a href="https://www.instagram.com/multiversxofficial/"><i class="fab fa-instagram hover:text-slate-300"></i></a>
-      <a href="https://twitter.com/xSpotlightWeb3"><i class="fab fa-twitter hover:text-slate-300"></i></a>
-      <a href="https://www.facebook.com/MultiversX/"><i class="fab fa-facebook-f hover:text-slate-300"></i></a>
-      <a href="https://t.me/multiversx"><i class="fab fa-telegram-plane hover:text-slate-300"></i></a>
-    </div>
-    <a href="https://multiversx.com/">
-      <div class="flex flex-row gap-3 justify-center text-sm text-zinc-400 hover:text-zinc-300 items-center pb-16">
-        <p>Powered by</p>
-        <img src="./../../../assets/logos/multiversx-light.png" class="h-3" />
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3 mt-24 px-3 pt-12 container">
+    <div
+      class="col-start-1 col-end-2 flex flex-col content-center items-center md:items-start"
+    >
+      <img
+        src="./../../../assets/logos/xspotlight-light.svg"
+        class="h-6 w-auto"
+      />
+      <p class="text-sm text-zinc-400 self-center md:self-start py-2">
+        Own a piece of Web3 culture.
+      </p>
+      <p
+        class="text-zinc-400 text-center md:text-left font-thin py-2 px-3 md:px-0"
+      >
+        The front-page of the MultiversX NFT ecosystem. Create, buy and sell
+        NFTs. Collaborate with fellow collectors and creators. Be part of the
+        genesis of Web3 culture and own a piece of it.
+      </p>
+      <div
+        class="text-zinc-500 flex flex-row gap-6 content-center justify-center text-lg py-5"
+      >
+        <a href="https://www.instagram.com/multiversxofficial/"
+          ><i class="fab fa-instagram hover:text-slate-300"></i
+        ></a>
+        <a href="https://twitter.com/xSpotlightWeb3"
+          ><i class="fab fa-twitter hover:text-slate-300"></i
+        ></a>
+        <a href="https://www.facebook.com/MultiversX/"
+          ><i class="fab fa-facebook-f hover:text-slate-300"></i
+        ></a>
+        <a href="https://t.me/multiversx"
+          ><i class="fab fa-telegram-plane hover:text-slate-300"></i
+        ></a>
       </div>
-    </a>
-  </div>
+      <a href="https://multiversx.com/">
+        <div
+          class="flex flex-row gap-3 justify-center text-sm text-zinc-400 hover:text-zinc-300 items-center pb-16"
+        >
+          <p>Powered by</p>
+          <img src="./../../../assets/logos/multiversx-light.png" class="h-3" />
+        </div>
+      </a>
+    </div>
 
-
-  <div class="hidden md:block col-start-2 col-end-4 ">
-    <div class="grid grid-cols-3 lg:grid-cols-4 gap-5 text-white leading-7">
-      <ul>
-        <li class="text-zinc-400 leading-10">Essentials</li>
-        <li>Get EGLD</li>
-        <li>xPortal Mobile</li>
-        <li>
-          Wallet
-          <span class="text-footer_free bg-footer_free_bg rounded-sm p-1">free</span>
-        </li>
-        <li>
-          MultiversX DeFi Wallet
-          <span class="text-footer_free bg-footer_free_bg rounded-sm p-1">free</span>
-        </li>
-        <li>MultiversX Explorer</li>
-      </ul>
-      <ul>
-        <li class="text-zinc-400 leading-10">My Account</li>
-        <li>My NFTs</li>
-        <li>My Collections</li>
-        <li>Web3 Feed</li>
-        <li>Auctions</li>
-      </ul>
-      <ul>
-        <li class="text-zinc-400 leading-10">Legal</li>
-        <li>Privacy Policy</li>
-        <li>Terms & Conditions</li>
-        <li>Security</li>
-      </ul>
+    <div class="hidden md:block col-start-2 col-end-4">
+      <div class="grid grid-cols-3 lg:grid-cols-4 gap-5 text-white leading-7">
+        <ul>
+          <li class="text-zinc-400 leading-10">Essentials</li>
+          <li>
+            <a href="https://buy.multiversx.com/" target="_blank">Get EGLD</a>
+          </li>
+          <li>
+            <a href="https://xportal.com/" target="_blank"
+              >xPortal Mobile Wallet
+              <span class="text-footer_free bg-footer_free_bg rounded-sm p-1"
+                >free</span
+              >
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://chrome.google.com/webstore/detail/multiversx-defi-wallet/dngmlblcodfobpdpecaadgfbcggfjfnm"
+              target="_blank"
+            >
+              MultiversX DeFi Wallet
+              <span class="text-footer_free bg-footer_free_bg rounded-sm p-1"
+                >free</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="https://explorer.multiversx.com/" target="_blank">
+              MultiversX Explorer</a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li class="text-zinc-400 leading-10">My Account</li>
+          <li (click)="toggleDrawer()" class="cursor-pointer">My NFTs</li>
+          <li (click)="toggleDrawer()" class="cursor-pointer">
+            My Collections
+          </li>
+          <li (click)="toggleDrawer()" class="cursor-pointer">Web3 Feed</li>
+          <li (click)="toggleDrawer()" class="cursor-pointer">Auctions</li>
+        </ul>
+        <ul>
+          <li class="text-zinc-400 leading-10">Legal</li>
+          <li>
+            <a href="https://xspotlight.com/privacy" target="_blank">
+              Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a href="https://xspotlight.com/terms" target="_blank">
+              & Conditions</a
+            >
+          </li>
+          <li>
+            <a href="https://multiversx.com/report/" target="_blank">
+              Security</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -30,7 +30,7 @@
         target="_blank"
       >
         <div
-          class="flex flex-row flex-nowrap gap-4 group bg-dark_wallet rounded-lg py-5 px-3 content-center items-center border-dark_wallet hover:border-yellow border-1"
+          class="flex outline-none flex-row flex-nowrap gap-4 group bg-dark_wallet rounded-lg py-5 px-3 content-center items-center border-dark_wallet hover:border-yellow border-1"
         >
           <img src="./../assets/logos/mobile_wallet.svg" class="text-yellow" />
           <p class="text-white justify-self-start text-md grow">
@@ -70,6 +70,6 @@
 
   <mat-drawer-content class="bg-black pt-24">
     <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <app-footer [drawer]="drawer"></app-footer>
   </mat-drawer-content>
 </mat-drawer-container>

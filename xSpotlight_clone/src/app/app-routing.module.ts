@@ -11,14 +11,21 @@ const routes: Routes = [
   },
   {
     path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
+    path: 'nft/:nftId',
     loadChildren: () =>
-      import('./blog/blog.module').then((m) => m.BlogModule),
+      import('./nft-details/nft-details.module').then(
+        (m) => m.NftDetailsModule
+      ),
   },
   {
     path: ':user',
     loadChildren: () =>
       import('./shared/user/user.module').then((m) => m.UserModule),
   },
+
   { path: '**', redirectTo: '' },
 ];
 
