@@ -1,0 +1,7 @@
+.home-section-title {
+    font-size: 40px;
+    background: linear-gradient(to right, #8533FF , #FBCA1C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+

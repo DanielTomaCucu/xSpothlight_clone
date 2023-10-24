@@ -28,6 +28,7 @@ module.exports = {
         dark_wallet: "#0b0b0b",
         footer_free: "#00c8b0",
         footer_free_bg: "rgb(0,200,176,.1)",
+        blog_text:"#b2b0a8"
       },
       width: {
         "fit-content": "fit-content",

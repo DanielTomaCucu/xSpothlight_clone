@@ -33,7 +33,7 @@ import { BlogComponent } from './blog/blog.component';
     TweetsComponent,
     NewsLetterComponent,
     FooterComponent,
-    BlogComponent,
+
   ],
   imports: [
     MatSidenavModule,
