@@ -12,6 +12,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('./nfts/nfts.module').then((m) => m.NftsModule),
       },
+    
       {
         path: 'collections',
         loadChildren: () =>

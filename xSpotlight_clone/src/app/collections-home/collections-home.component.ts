@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CollectionsHomeService } from './collections-home.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-collections-home',
@@ -11,7 +12,10 @@ export class CollectionsHomeComponent {
   items: any;
   subscribe: Subscription;
   loading: boolean = false;
-  constructor(private collectionsService: CollectionsHomeService) {
+  constructor(
+    private collectionsService: CollectionsHomeService,
+    private router: Router
+  ) {
     this.subscribe = new Subscription();
   }
 
@@ -21,10 +25,20 @@ export class CollectionsHomeComponent {
       (data) => {
         this.items = data;
         this.loading = false;
+        console.log(this.items)
       },
 
       (error) => console.error(error)
     );
+  }
+  redirectToUser(user: string) {
+    this.router.navigate(['', user]);
+  }
+  redirectToNftDetail(nftId: string) {
+    this.router.navigate(['nft', nftId]);
+  }
+  redirectToNfts(param: string) {
+    this.router.navigate(['/explore/collections', param]);
   }
   ngOnDestroy() {
     this.subscribe.unsubscribe();

@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { CollectedService } from './collected.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscriber, Subscription } from 'rxjs';
 
 @Component({
@@ -15,8 +15,11 @@ export class CollectedComponent {
   subs: Subscription;
   constructor(
     private collectedService: CollectedService,
-    private route: ActivatedRoute
-  ) {this.subs= new Subscription}
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.subs = new Subscription();
+  }
 
   ngOnInit() {
     this.loadMore();
@@ -36,16 +39,21 @@ export class CollectedComponent {
     this.loading = true;
     if (this.nextCall) {
       let user: string = this.route.snapshot.paramMap.get('user')!;
-    this.subs=  this.collectedService.getCollectionUser(user).subscribe((data) => {
-      (this.nfts = [...this.nfts, ...data]);
-        this.loading = false;
-        if (data.length < 10) {
-          this.nextCall = false;
-        }
-      });
+      this.subs = this.collectedService
+        .getCollectionUser(user)
+        .subscribe((data) => {
+          this.nfts = [...this.nfts, ...data];
+          if (data.length < 10) {
+            this.nextCall = false;
+          }
+          this.loading = false;
+        });
     }
   }
+  redirectToUser(user: string) {
+    this.router.navigate(['', user]);
+  }
   ngOnDestroy() {
-    this.subs.unsubscribe()
+    this.subs.unsubscribe();
   }
 }

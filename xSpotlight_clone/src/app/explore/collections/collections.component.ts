@@ -61,6 +61,9 @@ export class CollectionsComponent {
   redirectToNfts(param: string) {
     this.router.navigate(['/explore/collections', param]);
   }
+  redirectToUser(user: string) {
+    this.router.navigate(['', user]);
+  }
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
