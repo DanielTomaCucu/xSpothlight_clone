@@ -1,4 +1,4 @@
-{
+export const blogData = {
   "blog": {
     "title": "xSpotlight",
     "url": "https://blog.xspotlight.com/",

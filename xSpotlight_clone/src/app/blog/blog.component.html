@@ -1,1 +1,143 @@
-<p>blog works!</p>
+<div class="container">
+  <ul class="flex flex-row gap-5 overflow-scroll">
+    <li
+      class="bg-yellow py-2 px-3 rounded-full whitespace-nowrap"
+      *ngFor="let category of categories"
+    >
+      {{ category }}
+    </li>
+  </ul>
+  <div class="grid grid-flow-row gap-3 mt-8">
+    <div
+      *ngFor="let post of posts"
+      class="bg-dark gap-4 rounded-md p-2 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 group"
+    >
+      <div class="p-2 md:p-5 xl:col-start-1 xl:col-end-3">
+        <p class="text-yellow text-lg font-thin">- {{ post.category }}</p>
+        <h1
+          class="text-blog_text font-thin text-lg md:text-3xl pt-2 line-clamp-2 md:line-clamp-1 group-hover:text-white transition duration-500"
+        >
+          {{ post.title }}
+        </h1>
+        <p class="text-blog_text font-thin line-clamp-4">
+          {{ post.description }}
+        </p>
+        <div
+          class="flex flex-row text-white items-center justify-between mt-10"
+        >
+          <div class="flex flex-row text-white gap-2">
+            <img src="./../../favicon.ico" class="rounded-lg h-9" />
+            <div>
+              <p>{{ post.author }}</p>
+              <p class="text-blog_text font-thin">{{ post.date }}</p>
+            </div>
+          </div>
+          <p
+            class="px-5 py-2 rounded-full bg-secondary text-blog_text hover:text-white transition duration-500"
+          >
+            Read
+          </p>
+        </div>
+      </div>
+      <div class="h-[180px] sm:h-full overflow-hidden rounded-md">
+        <img
+          src="{{ post.image_url }}"
+          class="rounded-md object-cover md:h-full"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <p
+      class="home-section-title text-3xl md:text-5xl font-bold w-fit-content pt-20"
+    >
+      Join Us On Social Media
+    </p>
+    <div class="grid grid-cols-12 w-full pt-2">
+      <p
+        class="text-text_silver text-md md:text-lg md:pt-5 col-start-1 col-end-13 md:col-start-1 md:col-end-9"
+      >
+        Join us as we explore the vast Multiverse of web3 projects to the Power
+        of X, and reveal new ways of building meaningful and sustainable
+        communities.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-16">
+    <div
+      class="container bg-secondary rounded-2xl p-6 flex flex-col lg:justify-between lg:items-center md:col-start-1 md:col-end-5"
+    >
+      <p
+        class="text-white text-center text-2xl mb-6 lg:mb-0 lg:flex-1 lg:self-center lg:text-left"
+      >
+        Follow us on Twitter
+      </p>
+      <div
+        class="flex flex-col sm:flex-row flex-wrap gap-2 content-center items-center justify-center mt-3"
+      >
+        <a
+          href="https://twitter.com/xSpotlightWeb3"
+          target="_blank"
+          class="group w-fit-content"
+        >
+          <div
+            class="bg-yellow px-5 py-2 gap-1 rounded-full flex flex-row border-1 border-yellow hover:bg-secondary group-hover:text-white transition duration-500 items-center"
+          >
+            <i class="fab fa-twitter group-hover:text-yellow"></i>
+            <p class="group-hover:text-yellow">@xSpotlight</p>
+          </div>
+        </a>
+
+        <a
+          href="https://twitter.com/MultiversX"
+          target="_blank"
+          class="group w-fit-content"
+        >
+          <div
+            class="bg-yellow px-5 py-2 gap-1 rounded-full flex flex-row border-1 border-yellow hover:bg-secondary group-hover:text-white transition duration-500 items-center"
+          >
+            <i class="fab fa-twitter group-hover:text-yellow"></i>
+            <p class="group-hover:text-yellow">@MultiversXNFTs</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="container bg-secondary rounded-2xl p-6 flex flex-col lg:flex-row lg:justify-between lg:items-center md:col-start-5 md:col-end-13"
+    >
+      <p
+        class="text-white text-center text-2xl mb-6 lg:mb-0 lg:flex-1 lg:self-center lg:text-left"
+      >
+        Never miss an update
+      </p>
+      <div class="flex flex-col sm:hidden">
+        <input
+          placeholder="Subscribe to newsletter"
+          type="email"
+          class="p-4 rounded-full bg-black text-zinc-800"
+        />
+        <button class="bg-yellow mt-3 p-4 text-black rounded-full">
+          Subscribe
+        </button>
+      </div>
+
+      <div class="hidden sm:block lg:flex-1">
+        <div class="flex flex-row bg-black rounded-full justify-between">
+          <input
+            placeholder="Subscribe to newsletter"
+            type="email"
+            class="p-5 rounded-full bg-black text-zinc-800 text-lg"
+          />
+          <button
+            class="bg-yellow px-6 m-2 text-lg text-black rounded-full justify-self-end"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
