@@ -19,7 +19,7 @@ import { ExploreModule } from './explore/explore.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { BlogComponent } from './blog/blog.component';
+
 
 @NgModule({
   declarations: [
