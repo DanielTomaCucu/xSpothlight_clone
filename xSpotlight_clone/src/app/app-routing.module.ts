@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { WelcomeModule } from './welcome/welcome.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -13,6 +14,12 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
   },
+  {
+    path: 'welcome',
+    loadChildren: () =>
+      import('./welcome/welcome.module').then((m) => WelcomeModule),
+  },
+
   {
     path: 'nft/:nftId',
     loadChildren: () =>

@@ -1,0 +1,29 @@
+.home-section-title {
+  background: linear-gradient(270deg, #fbca1c, #8533ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.roadMap::after {
+  background: linear-gradient(
+    0deg,
+    transparent,
+    #fbca1c 30%,
+    #8533ff 70%,
+    transparent
+  );
+  bottom: 0;
+  content: "";
+
+  position: absolute;
+  top: 0;
+  width: 3px;
+  z-index: -1;
+}
+@media (min-width: 768px){
+.roadMap::after {
+     left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+}

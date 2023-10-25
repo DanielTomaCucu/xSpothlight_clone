@@ -21,15 +21,15 @@ export class TrendingComponent {
   ngOnInit(): void {
     this.loading = true;
     const identifiers = [
-      'PRTNFTS-8404f1-01',
-      'BCXSUB-eafa31-06',
-      'TIGERX-fe2ebe-6f',
+      'XHACKER23-1a842f',
+      'XDAY23TEAM-f7a346',
+      'POKERPASS-9d4f42',
     ];
     this.trendingService.getMultipleItems(identifiers).subscribe(
       (data) => {
         this.items = data.flat();
         this.loading = false;
-        
+
       },
       (error) => console.error(error)
     );

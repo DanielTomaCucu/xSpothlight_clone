@@ -55,10 +55,10 @@
               (click)="redirectToUser(item.creator)"
               class="text-yellow font-bold flex gap-2 owner pl-1 pr-4 py-1 rounded-full w-fit-content cursor-pointer"
             >
-              <mat-icon
-                class="text-neutral-700 border rounded-full border-neutral-700 bg-neutral-500 icon-owner"
-                >person</mat-icon
-              >
+               <img
+                  src="./../../assets/bg/user-placeholder.jpeg"
+                  class="w-6 border-neutral-700 rounded-full"
+                />
               <p class="font-thin justify-end">{{ item.creator | trimText }}</p>
             </div>
             <p class="text-zinc-400 text-xs font-bold">
