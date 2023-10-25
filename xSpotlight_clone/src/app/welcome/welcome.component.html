@@ -1,6 +1,6 @@
 <app-navbar-mobile></app-navbar-mobile>
 <div
-  class="relative h-[550px] md:h-[700px] xl:h-[850px] -mt-2 sm:-mt-5 lg:-mt-20 overflow-hidden"
+  class="relative h-[600px] md:h-[700px] xl:h-[850px]  sm:-mt-5 lg:-mt-20 overflow-hidden"
 >
   <img
     src="../../assets/bg/welcome01.png"
@@ -22,13 +22,15 @@
   <div
     class="flex flex-col gap-5 lg:gap-8 items-center px-6 transform translate-y-1/4 md:translate-y-1/3 w-full h-full"
   >
-    <p class="text-yellow text-lg">What's New?</p>
+    <p class="text-yellow text-lg lg:text-xl">What's New?</p>
     <p
       class="text-white text-4xl md:text-5xl lg:text-7xl font-bold text-center"
     >
       Welcome to xSpotlight!
     </p>
-    <p class="text-blog_text text-center text-lg md:mx-[18%] xl:mx-[28%]">
+    <p
+      class="text-blog_text text-center text-base md:text-lg md:mx-[18%] xl:mx-[28%]"
+    >
       Here you will find amazing content from across the MultiversX, created by
       people all over the world pushing the boundaries of creativity and
       technology. Our spotlight shines a light on all these amazing creators and
@@ -41,13 +43,16 @@
   </div>
 </div>
 <div class="mt-36 md:mt-24 container relative">
-  <img src="../../assets/bg/bg-blur.svg" class="absolute noIndex top-1/3" />
   <img
-    src="../../assets/bg/cta-line.svg"
-    class="absolute noIndex top-1/3 w-screen overflow-auto"
+    src="../../assets/bg/bg-blur.svg"
+    class="absolute noIndex top-1/3 lg:top-1/4"
+  />
+  <img
+    src="./../../assets/bg/cta-line.svg"
+    class="absolute left-1/2 transform -translate-x-1/2 w-full md:w-screen h-full object-none overflow-x-visible noIndex md:block hidden"
   />
   <p
-    class="home-section-title text-5xl font-bold text-center m-auto w-fit-content"
+    class="home-section-title  text-4xl md:text-5xl font-bold text-center m-auto w-fit-content"
   >
     xSpotlight Features
   </p>
@@ -61,7 +66,7 @@
         class="bg-dark p-4 rounded-md h-14 w-auto md:h-20 md:p-6"
       />
 
-      <p class="text-white text-sm md:text-base">
+      <p class="text-white text-sm lg:text-base">
         Enhanced aggregation and curation of Web3 projects, through additional
         featured & trending areas of our homepage.
       </p>
@@ -74,7 +79,7 @@
         src="../../assets/bg/icon-verified-welcome.svg"
         class="bg-dark p-4 rounded-md h-14 w-auto md:h-20 md:p-6"
       />
-      <p class="text-white text-sm md:text-base">
+      <p class="text-white text-sm lg:text-base">
         The source of truth, through the verified badge applied to verified
         NFTs, creators and collections.
       </p>
@@ -87,7 +92,7 @@
         src="../../assets/bg/icon-search-welcome.svg"
         class="bg-dark p-4 rounded-md h-14 w-auto md:h-20 md:p-6"
       />
-      <p class="text-white text-sm md:text-base">
+      <p class="text-white text-sm lg:text-base">
         Improved Explore section for easily finding specific NFTs, collections
         and creators with advanced filters and sorting options.
       </p>
@@ -100,20 +105,20 @@
         src="../../assets/bg/icon-world-welcome.svg"
         class="bg-dark p-4 rounded-md h-14 w-auto md:h-20 md:p-6"
       />
-      <p class="text-white text-sm md:text-base">
+      <p class="text-white text-sm lg:text-base">
         Social dynamics, through asynchronous user connectivity, public profiles
         linked to herotags, and customizable Web3 feed
       </p>
     </div>
 
     <div
-      class="bg-secondary flex flex-row flex-nowrap gap-4 p-4 md:p-6 rounded-md items-center"
+      class="bg-secondary flex flex-row flex-nowrap gap-4 p-4 md:p-6 rounded-md items-center md:col-start-1 md:col-end-3 md:ml-[25%] md:mr-[25%]"
     >
       <img
         src="../../assets/bg/icon-megaphone-welcome.svg"
         class="bg-dark p-4 rounded-md h-14 w-auto md:h-20 md:p-6"
       />
-      <p class="text-white text-sm md:text-base">
+      <p class="text-white text-sm lg:text-base">
         Promotion of ecosystem partners, through integration of their existing
         auctions and marketplace listings.
       </p>
@@ -121,8 +126,8 @@
   </div>
 </div>
 
-<div class="container mt-52 relative">
-  <div class="roadMap  h-auto">
+<div class="container my-52 relative">
+  <div class="roadMap h-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
       <div
         class="rounded-md bg-dark p-8 flex flex-col gap-2 ml-4 md:ml-0 relative"
@@ -140,7 +145,9 @@
         <button
           class="bg-yellow mt-2 text-sm text-dark_wallet rounded-full w-fit-content px-4 py-3 font-bold"
         >
-          Submit your project
+          <a href="https://submit.xspotlight.com/" target="_blank">
+            Submit your project</a
+          >
         </button>
       </div>
       <div class="hidden md:block"></div>
@@ -189,3 +196,5 @@
     </div>
   </div>
 </div>
+<app-tweets></app-tweets>
+<app-news-letter></app-news-letter>
