@@ -20,8 +20,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
