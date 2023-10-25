@@ -10,6 +10,7 @@ module.exports = {
         lg: "992px", // Large devices (desktops, 992px and up)
         xl: "1200px", // Extra large devices (large desktops, 1200px and up)
         "2xl": "1400px", // Extra extra large devices (larger desktops, 1400px and up)
+        "3xl":"1900px",
       },
       padding: {
         30: "7.5rem", // for px-30
