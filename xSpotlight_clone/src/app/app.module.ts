@@ -19,6 +19,8 @@ import { ExploreModule } from './explore/explore.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { TweetsModule } from './tweets/tweets.module';
+import { NewsLetterModule } from './news-letter/news-letter.module';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     TrendingComponent,
     CollectionsHomeComponent,
     MarketplacesComponent,
-    TweetsComponent,
-    NewsLetterComponent,
+
+
     FooterComponent,
   ],
   imports: [
@@ -44,6 +46,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     ExploreModule,
     RouterModule,
     SharedModule,
+    TweetsModule,
+    NewsLetterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
