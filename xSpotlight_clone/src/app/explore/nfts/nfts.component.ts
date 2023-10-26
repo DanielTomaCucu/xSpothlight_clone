@@ -1,7 +1,10 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Renderer2 } from '@angular/core';
 import { NftsService } from './nfts.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { ScreenshotService } from 'src/app/shared/screenshot.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NftDetailsComponent } from 'src/app/nft-details/nft-details.component';
 
 @Component({
   selector: 'app-nfts',
@@ -10,7 +13,12 @@ import { Router } from '@angular/router';
 })
 export class NftsComponent {
   subs: Subscription;
-  constructor(private nftsService: NftsService, private router: Router) {
+  constructor(
+    private nftsService: NftsService,
+    private router: Router,
+    private dialog: MatDialog,
+    private renderer: Renderer2
+  ) {
     this.subs = new Subscription();
   }
   nfts: any = [];
@@ -29,7 +37,13 @@ export class NftsComponent {
       this.loadMore();
     }
   }
-
+  openDialog() {
+    const dialogRef = this.dialog.open(NftDetailsComponent, {
+      panelClass: ['full-screen-modal'],
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+    });
+  }
   private loadMore(): void {
     this.loading = true;
 
@@ -42,9 +56,7 @@ export class NftsComponent {
   redirectToUser(user: string) {
     this.router.navigate(['', user]);
   }
-  redirectToNftDetail(nftId: string) {
-    this.router.navigate(['nft', nftId]);
-  }
+
   ngOnDestroy() {
     this.subs.unsubscribe();
   }

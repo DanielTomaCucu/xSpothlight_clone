@@ -21,7 +21,7 @@ import { SharedModule } from './shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TweetsModule } from './tweets/tweets.module';
 import { NewsLetterModule } from './news-letter/news-letter.module';
-
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +36,7 @@ import { NewsLetterModule } from './news-letter/news-letter.module';
     FooterComponent,
   ],
   imports: [
+    MatDialogModule,
     MatSidenavModule,
     BrowserModule,
     AppRoutingModule,
