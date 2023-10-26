@@ -101,3 +101,26 @@ p {
 .mat-mdc-dialog-container .mdc-dialog__surface {
   background: transparent !important;
 }
+/* Override Angular Material Tab styles */
+
+.mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline,
+.mat-mdc-tab-link:not(.mat-mdc-tab-disabled)
+  .mdc-tab-indicator__content--underline {
+  border-color: #f9ca1c !important;
+}
+.mat-mdc-tab .mdc-tab__text-label,
+.mat-mdc-tab-link .mdc-tab__text-label {
+  color: #8e9396;
+  font-size: larger;
+  font-weight: 600;
+}
+.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label,
+.mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active
+  .mdc-tab__text-label {
+  color: #f9ca1c;
+  font-size: larger;
+  font-weight: 600;
+}
+.mat-tab-label, .mat-tab-link {
+  pointer-events: none !important;
+}

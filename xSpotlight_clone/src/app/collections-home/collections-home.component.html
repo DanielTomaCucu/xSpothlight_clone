@@ -55,7 +55,7 @@
       <div class="carousel-track flex gap-3 md:gap-6 pt-11">
         <div
           class="carousel-slide rounded-md relative overflow-hidden cursor-pointer"
-          *ngFor="let item of collection" (click)="redirectToNftDetail(item.ticker)"
+          *ngFor="let item of collection"  (click)="openNftDetails(item.identifier)"
         >
           <img
             [src]="item?.media[0]?.thumbnailUrl"

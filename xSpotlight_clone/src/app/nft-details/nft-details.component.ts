@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { ScreenshotService } from '../shared/screenshot.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { NftDetailsService } from './nft-details.service';
 
 @Component({
   selector: 'app-nft-details',
@@ -8,9 +8,21 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./nft-details.component.css'],
 })
 export class NftDetailsComponent {
-  constructor(private dialogRef: MatDialogRef<NftDetailsComponent>) {}
+  nftDetails: any;
+  constructor(
+    private dialogRef: MatDialogRef<NftDetailsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private nftDetailsService: NftDetailsService
+  ) {}
 
   close() {
     this.dialogRef.close();
+  }
+
+  ngOnInit() {
+    this.nftDetailsService.getNftDetail(this.data.nftId).subscribe((data) => {
+      console.log(data);
+      this.nftDetails = data;
+    });
   }
 }

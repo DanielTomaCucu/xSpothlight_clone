@@ -37,9 +37,12 @@ export class NftsComponent {
       this.loadMore();
     }
   }
-  openDialog() {
+  openNftDetails(nftId:string) {
     const dialogRef = this.dialog.open(NftDetailsComponent, {
       panelClass: ['full-screen-modal'],
+      data: {
+        nftId: nftId
+      }
     });
     dialogRef.afterClosed().subscribe((result) => {
     });
