@@ -5,7 +5,7 @@
 <ng-template #dataLoaded  >
 <div  id="page-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 container pt-8">
 <div
-  *ngFor="let nft of nfts; let i = index" (click)="openDialog()"
+  *ngFor="let nft of nfts; let i = index" (click)="openNftDetails(nft.identifier)"
   class=" content-center items-center border border-secondary rounded-md group"
 >
   <div class="overflow-hidden ">
