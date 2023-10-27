@@ -7,7 +7,7 @@
   />
   <div class="flex flex-col md:flex-row h-full">
     <div
-      class="md:w-calc flex justify-center items-center relative"
+      class="md:w-calc flex justify-center items-center relative h-[30%] md:h-full"
       *ngIf="nftDetails?.url; else noImage"
     >
       <img
@@ -29,53 +29,58 @@
       />
     </ng-template>
 
-
-    <div class="w-full md:w-[470px] bg-dark_wallet overflow-y-scroll no-scrollbar">
-<app-skeleton-loader-nft-details *ngIf="loading== true; else data"></app-skeleton-loader-nft-details>
-      <div class="bg-dark pb-4">
-        <ng-template #data>
-        <div
-          class="flex flex-row flex-nowrap gap-2 pt-10 px-5 justify-items-center"
+    <div
+      class="w-full md:w-[470px] bg-dark_wallet overflow-y-scroll no-scrollbar z-20 rounded-t-2xl md:rounded-none"
+    >
+      <app-skeleton-loader-nft-details
+        *ngIf="loading == true; else data"
+      ></app-skeleton-loader-nft-details>
+      <div class="bg-dark">
+        <ng-template #data class="bg-dark">
+          <div
+            class="flex flex-row bg-dark flex-nowrap gap-2 pt-10 px-5 justify-items-center"
+          >
+            <p class="text-3xl text-white font-bold self-center line-clamp-1">
+              {{ nftDetails?.name }}
+            </p>
+            <img
+              src="../../assets/logos/verifid.svg"
+              class="h-10 justify-self-center self-center"
+            />
+            <img
+              src="../../assets/logos/redirect.svg"
+              class="h-4 justify-self-center self-center"
+            />
+          </div>
+          <div class="bg-dark">
+            <p class="text-yellow px-5 py-2 font-bold">
+              Collection {{ nftDetails?.ticker }}
+            </p>
+            <p class="px-5 pt-3 text-text_silver line-clamp-2 leading-5">
+              {{ nftDetails?.metadata?.description }}
+            </p>
+          </div>
+          <div class="py-9 px-5 flex flex-row justify-between bg-dark">
+            <div
+              class="bg-secondary group cursor-pointer hover:bg-secondary_hover rounded-full flex flex-row w-fit-content py-3 px-6 gap-3.5"
+            >
+              <img
+                src="../../assets/socials/share.svg"
+                class="h-4 text-white self-center group-hover:text-yellow"
+              />
+              <p class="text-white font-bold">Share</p>
+            </div>
+            <div
+              class="bg-secondary rounded-full flex flex-row cursor-pointer w-fit-content py-3 px-6 gap-3.5 group hover:bg-pink"
+            >
+              <img
+                src="../../assets/socials/like.svg"
+                class="h-4 text-white self-center"
+              />
+              <p class="text-white font-bold">Like</p>
+            </div>
+          </div></ng-template
         >
-          <p class="text-3xl text-white font-bold self-center">
-            {{ nftDetails?.name }}
-          </p>
-          <img
-            src="../../assets/logos/verifid.svg"
-            class="h-10 justify-self-center self-center"
-          />
-          <img
-            src="../../assets/logos/redirect.svg"
-            class="h-4 justify-self-center self-center"
-          />
-        </div>
-        <p class="text-yellow px-5 py-2 font-bold">
-          Collection {{ nftDetails?.ticker }}
-        </p>
-        <p class="px-5 pt-3 text-text_silver line-clamp-2 leading-5">
-          {{ nftDetails?.metadata?.description }}
-        </p>
-
-        <div class="py-9 px-5 flex flex-row justify-between">
-          <div
-            class="bg-secondary group cursor-pointer hover:bg-secondary_hover rounded-full flex flex-row w-fit-content py-3 px-6 gap-3.5"
-          >
-            <img
-              src="../../assets/socials/share.svg"
-              class="h-4 text-white self-center group-hover:text-yellow"
-            />
-            <p class="text-white font-bold">Share</p>
-          </div>
-          <div
-            class="bg-secondary rounded-full flex flex-row  cursor-pointer w-fit-content py-3 px-6 gap-3.5 group hover:bg-pink"
-          >
-            <img
-              src="../../assets/socials/like.svg"
-              class="h-4 text-white self-center"
-            />
-            <p class="text-white font-bold">Like</p>
-          </div>
-        </div></ng-template>
       </div>
 
       <div>
@@ -94,7 +99,7 @@
                   <p class="text-yellow font-thin text-xl">Loading...</p>
                 </div>
                 <ng-template #data>
-                  <div class="flex flex-row w-full justify-between text-sm">
+                  <div class="flex flex-row w-full justify-between text-sm ">
                     <div class="flex flex-row gap-1">
                       <img
                         src="../../assets/nft/prop.svg"
@@ -104,7 +109,7 @@
                     </div>
                     <div class="flex flex-row gap-1">
                       <p class="text-white">
-                        {{ nftDetails?.metadata?.attributes.length }}
+                        {{ nftDetails?.metadata?.attributes?.length }}
                       </p>
                       <p class="text-white">Properties</p>
                     </div>
@@ -306,7 +311,7 @@
                       </div>
                       <p class="text-white">{{ nftDetails?.royalties }}%</p>
                     </div>
-                    <div class="flex flex-row justify-between text-sm">
+                    <div class="flex flex-row justify-between text-sm pb-5">
                       <div class="flex flex-row gap-2">
                         <img
                           src="../../assets/nft/uris.svg"
