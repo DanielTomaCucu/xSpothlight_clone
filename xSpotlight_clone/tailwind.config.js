@@ -31,7 +31,7 @@ module.exports = {
         footer_free_bg: "rgb(0,200,176,.1)",
         blog_text: "#b2b0a8",
         pink: "#d63384",
-        bg_pink: "#34172b",
+        bg_pink: "#d6338452",
       },
       width: {
         "fit-content": "fit-content",
