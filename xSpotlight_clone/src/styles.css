@@ -124,3 +124,6 @@ p {
 .mat-tab-label, .mat-tab-link {
   pointer-events: none !important;
 }
+.mat-mdc-tab-header {
+  background: #161616 !important;
+}

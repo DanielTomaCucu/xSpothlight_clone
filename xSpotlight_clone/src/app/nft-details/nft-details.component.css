@@ -9,10 +9,10 @@
     255,
     255,
     0.8
-  ); /* Adjust the rgba values to achieve the desired transparency */
+  );
   backdrop-filter: blur(
     5px
-  ); /* Adjust the pixel value to achieve the desired blur */
+  );
 }
 .glow-image {
   filter: blur(25px) brightness(2);
@@ -20,4 +20,30 @@
 }
 p {
   margin: 0px;
+}
+
+.loader {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #f9ca1c ;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.mat-mdc-tab-header {
+  background: #161616 !important;
+}
+.width-calc {
+    width: calc(100% - 470px);
 }

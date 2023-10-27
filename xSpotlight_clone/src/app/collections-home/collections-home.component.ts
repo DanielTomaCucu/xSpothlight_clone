@@ -28,7 +28,6 @@ export class CollectionsHomeComponent {
       (data) => {
         this.items = data;
         this.loading = false;
-        console.log(this.items);
       },
 
       (error) => console.error(error)

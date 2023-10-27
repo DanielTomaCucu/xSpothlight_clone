@@ -5,87 +5,419 @@
     mat-dialog-close
     class="bg-secondary absolute rounded-full p-4 top-4 left-4 cursor-pointer z-30"
   />
-  <div class="flex flex-row h-full">
-    <div class="w-[66.6%] flex justify-center relative">
+  <div class="flex flex-col md:flex-row h-full">
+    <div
+      class="md:w-calc flex justify-center items-center relative"
+      *ngIf="nftDetails?.url; else noImage"
+    >
       <img
         [src]="nftDetails?.url"
-        class="h-[80%] w-[80%] object-contain self-center justify-self-center relative z-10"
+        class="h-[80%] md:w-[80%] object-contain self-center justify-self-center relative z-10"
       />
       <img
         [src]="nftDetails?.url"
         class="h-[80%] w-[80%] object-contain self-center justify-self-center absolute glow-image"
       />
     </div>
-    <div class="w-1/3 bg-dark">
-      <div
-        class="flex flex-row flex-nowrap gap-2 pt-10 px-5 justify-items-center"
-      >
-        <p class="text-3xl text-white font-bold self-center">
-          {{ nftDetails?.name }}
+    <ng-template
+      class="md:w-calc flex justify-center items-center relative"
+      #noImage
+    >
+      <img
+        src="../../assets/nft/noNFT.png"
+        class="h-[80%] md:w-[80%] object-contain self-center justify-self-center relative z-10"
+      />
+    </ng-template>
+
+
+    <div class="w-full md:w-[470px] bg-dark_wallet overflow-y-scroll no-scrollbar">
+<app-skeleton-loader-nft-details *ngIf="loading== true; else data"></app-skeleton-loader-nft-details>
+      <div class="bg-dark pb-4">
+        <ng-template #data>
+        <div
+          class="flex flex-row flex-nowrap gap-2 pt-10 px-5 justify-items-center"
+        >
+          <p class="text-3xl text-white font-bold self-center">
+            {{ nftDetails?.name }}
+          </p>
+          <img
+            src="../../assets/logos/verifid.svg"
+            class="h-10 justify-self-center self-center"
+          />
+          <img
+            src="../../assets/logos/redirect.svg"
+            class="h-4 justify-self-center self-center"
+          />
+        </div>
+        <p class="text-yellow px-5 py-2 font-bold">
+          Collection {{ nftDetails?.ticker }}
         </p>
-        <img
-          src="../../assets/logos/verifid.svg"
-          class="h-10 justify-self-center self-center"
-        />
-        <img
-          src="../../assets/logos/redirect.svg"
-          class="h-4 justify-self-center self-center"
-        />
-      </div>
-      <p class="text-yellow px-5 py-2 font-bold">
-        Collection {{ nftDetails?.ticker }}
-      </p>
-      <p class="px-5 pt-3 text-text_silver line-clamp-2 leading-5">
-        {{ nftDetails?.metadata?.description }}
-      </p>
+        <p class="px-5 pt-3 text-text_silver line-clamp-2 leading-5">
+          {{ nftDetails?.metadata?.description }}
+        </p>
 
-      <div class="py-9 px-5 flex flex-row justify-between">
-        <div
-          class="bg-secondary rounded-full flex flex-row w-fit-content py-3 px-6 gap-3.5"
-        >
-          <img
-            src="../../assets/socials/share.svg"
-            class="h-4 text-white self-center"
-          />
-          <p class="text-white font-bold">Share</p>
-        </div>
-        <div
-          class="bg-secondary rounded-full flex flex-row w-fit-content py-3 px-6 gap-3.5"
-        >
-          <img
-            src="../../assets/socials/like.svg"
-            class="h-4 text-white self-center"
-          />
-          <p class="text-white font-bold">like</p>
-        </div>
+        <div class="py-9 px-5 flex flex-row justify-between">
+          <div
+            class="bg-secondary group cursor-pointer hover:bg-secondary_hover rounded-full flex flex-row w-fit-content py-3 px-6 gap-3.5"
+          >
+            <img
+              src="../../assets/socials/share.svg"
+              class="h-4 text-white self-center group-hover:text-yellow"
+            />
+            <p class="text-white font-bold">Share</p>
+          </div>
+          <div
+            class="bg-secondary rounded-full flex flex-row  cursor-pointer w-fit-content py-3 px-6 gap-3.5 group hover:bg-pink"
+          >
+            <img
+              src="../../assets/socials/like.svg"
+              class="h-4 text-white self-center"
+            />
+            <p class="text-white font-bold">Like</p>
+          </div>
+        </div></ng-template>
       </div>
 
-      <div class="pt-4">
-        <mat-tab-group>
+      <div>
+        <mat-tab-group
+          (selectedTabChange)="onTabChange($event)"
+          animationDuration="0ms"
+        >
           <mat-tab label="Details" matRippleDisabled="true">
-            <div class="h-screen bg-dark_wallet px-5 pt-5">
-              <div class="flex flex-row w-full justify-between text-sm">
-                <div class="flex flex-row gap-1">
-                  <img
-                    src="../../assets/nft/prop.svg"
-                    class="h-3 self-center"
-                  />
-                  <p class="text-text_silver">Properties</p>
+            <ng-template matTabContent>
+              <div class="bg-dark_wallet px-6 pt-5">
+                <div
+                  *ngIf="loading === true; else data"
+                  class="flex flex-col justify-center content-center items-center gap-3 pt-6"
+                >
+                  <span class="loader"></span>
+                  <p class="text-yellow font-thin text-xl">Loading...</p>
                 </div>
-                <div class="flex flex-row gap-1">
-                  <p class="text-white">
-                    {{ nftDetails?.metadata?.attributes.length }}
-                  </p>
-                  <p class="text-white">Properties</p>
+                <ng-template #data>
+                  <div class="flex flex-row w-full justify-between text-sm">
+                    <div class="flex flex-row gap-1">
+                      <img
+                        src="../../assets/nft/prop.svg"
+                        class="h-3 self-center"
+                      />
+                      <p class="text-text_silver">Properties</p>
+                    </div>
+                    <div class="flex flex-row gap-1">
+                      <p class="text-white">
+                        {{ nftDetails?.metadata?.attributes.length }}
+                      </p>
+                      <p class="text-white">Properties</p>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-12 gap-2 pt-3">
+                    <div
+                      *ngFor="
+                        let attr of nftDetails?.metadata?.attributes;
+                        let i = index
+                      "
+                      [ngClass]="
+                        getColSpan(
+                          nftDetails?.metadata?.attributes.length || 0,
+                          i
+                        )
+                      "
+                      class="bg-secondary rounded-md p-3 content-center items-center justify-center"
+                    >
+                      <p
+                        class="text-text_silver text-xs font-thin text-center line-clamp-1"
+                      >
+                        {{ attr.trait_type }}
+                      </p>
+                      <p class="text-white text-center line-clamp-1 text-sm">
+                        {{ attr.value }}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-5 py-5">
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/identifier.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-end justify-self-center"
+                        >
+                          Identifier
+                        </p>
+                      </div>
+                      <p class="text-white">{{ nftDetails?.identifier }}</p>
+                    </div>
+
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/createdOn.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-end justify-self-center"
+                        >
+                          Created On
+                        </p>
+                      </div>
+                      <p class="text-white">
+                        {{ nftDetails?.timestamp | timestampToDate }}
+                      </p>
+                    </div>
+
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/owner.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-center justify-self-center"
+                        >
+                          Owner
+                        </p>
+                      </div>
+                      <p class="text-yellow">
+                        {{ nftDetails?.owner | trimText }}
+                      </p>
+                    </div>
+
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/creator.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-end justify-self-center"
+                        >
+                          Creator
+                        </p>
+                      </div>
+                      <p class="text-yellow">
+                        {{ nftDetails?.creator | trimText }}
+                      </p>
+                    </div>
+
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/fileType.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-end justify-self-center"
+                        >
+                          File type
+                        </p>
+                      </div>
+                      <p class="text-white">{{ nftDetails?.identifier }}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex flex-col gap-5">
+                      <div
+                        *ngFor="let rarity of getRaritiesArray()"
+                        class="flex flex-row justify-between text-sm"
+                      >
+                        <div class="text-white flex flex-row gap-2">
+                          <img
+                            src="../../assets/nft/rank.svg"
+                            class="h-3 self-center justify-self-center"
+                          />
+                          <p
+                            class="text-text_silver font-bold text-xs self-center justify-self-center"
+                          >
+                            {{ rarity.key | capitalize }} Rank
+                          </p>
+                        </div>
+                        <p class="text-white">{{ rarity.value.rank }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-5 py-5">
+                    <div class="flex flex-row gap-4 justify-between text-sm">
+                      <div
+                        class="flex flex-row gap-2 flex-nowrap items-center flex-1"
+                      >
+                        <img
+                          src="../../assets/nft/tags.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs justify-self-center"
+                        >
+                          Tags
+                        </p>
+                      </div>
+                      <div class="flex flex-row flex-wrap gap-1 justify-end">
+                        <p
+                          class="text-text_silver font-thin text-xs self-end bg-secondary py-2 px-3 rounded-full"
+                          *ngFor="let tag of nftDetails?.tags"
+                        >
+                          #{{ tag }}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/esdtType.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-end justify-self-center"
+                        >
+                          ESDT Type
+                        </p>
+                      </div>
+                      <p
+                        *ngIf="nftDetails?.type == 'NonFungibleESDT'; else SFT"
+                        class="text-white"
+                      >
+                        NFT
+                        <span class="text-text_silver"
+                          >(Non-Fungible Token)</span
+                        >
+                      </p>
+                      <ng-template #SFT>
+                        <p class="text-white">
+                          SFT
+                          <span class="text-text_silver"
+                            >(Semi-Fungible Token)</span
+                          >
+                        </p>
+                      </ng-template>
+                    </div>
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/royalties.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-end justify-self-center"
+                        >
+                          Royalties
+                        </p>
+                      </div>
+                      <p class="text-white">{{ nftDetails?.royalties }}%</p>
+                    </div>
+                    <div class="flex flex-row justify-between text-sm">
+                      <div class="flex flex-row gap-2">
+                        <img
+                          src="../../assets/nft/uris.svg"
+                          class="h-3 self-center justify-self-center"
+                        />
+                        <p
+                          class="text-text_silver font-bold text-xs self-center justify-self-center"
+                        >
+                          URIs
+                        </p>
+                      </div>
+                      <div class="text-yellow flex flex-col">
+                        <p class="" *ngFor="let url of nftDetails?.uris">
+                          {{ url | truncate }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </ng-template>
+          </mat-tab>
+          <mat-tab label="History">
+            <ng-template matTabContent>
+              <div class="bg-dark_wallet p-5">
+                <div
+                  *ngIf="loading === true; else data"
+                  class="flex flex-col justify-center content-center items-center gap-3 pt-6"
+                >
+                  <span class="loader"></span>
+                  <p class="text-yellow font-thin text-xl">Loading...</p>
+                </div>
+                <ng-template #data>
+                  <div *ngIf="history.length >= 3; else creator">
+                    <div
+                      *ngFor="let item of history"
+                      class="flex flex-col gap-4 py-3"
+                    >
+                      <div class="flex flex-row gap-3">
+                        <img
+                          src="../../assets/bg/user-placeholder.jpeg"
+                          class="rounded-2xl h-10 w-10 self-center"
+                        />
+                        <div class="flex flex-col text-sm">
+                          <p class="text-white">
+                            Received by
+                            <span class="text-yellow font-bold">
+                              {{ item?.receiver | trimText }}</span
+                            >
+                          </p>
+                          <p class="text-text_silver text-sm">
+                            {{ item?.timestamp | timestampToDate }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ng-template #creator>
+                    <div class="flex flex-col gap-4 py-3">
+                      <div class="flex flex-row gap-3">
+                        <img
+                          src="../../assets/bg/user-placeholder.jpeg"
+                          class="rounded-2xl h-10 w-10 self-center"
+                        />
+                        <div class="flex flex-col text-sm">
+                          <p class="text-white">
+                            Minted by
+                            <span class="text-yellow font-bold">
+                              {{ nftDetails?.creator | trimText }}</span
+                            >
+                          </p>
+                          <p class="text-text_silver text-sm">
+                            {{ nftDetails?.timestamp | timestampToDate }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ng-template>
+                <p
+                  (click)="loadMore()"
+                  class="text-center text-yellow font-bold underline cursor-pointer text-sm"
+                  *ngIf="history.length >= 3"
+                >
+                  Load More
+                </p>
+              </div>
+            </ng-template>
+          </mat-tab>
+          <mat-tab label="Creator">
+            <div class="bg-dark_wallet p-5">
+              <div class="flex flex-col gap-4 py-3">
+                <div class="flex flex-row gap-3">
+                  <img
+                    src="../../assets/bg/user-placeholder.jpeg"
+                    class="rounded-2xl h-10 w-10 self-center"
+                  />
+                  <div class="flex flex-col text-sm">
+                    <p class="text-white">
+                      Minted by
+                      <span class="text-yellow font-bold">
+                        {{ nftDetails?.creator | trimText }}</span
+                      >
+                    </p>
+                    <p class="text-text_silver text-sm">
+                      {{ nftDetails?.timestamp | timestampToDate }}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </mat-tab>
-          <mat-tab label="History">
-            <div class="h-screen bg-dark_wallet">bvfdfv</div>
-          </mat-tab>
-          <mat-tab label="Creator">
-            <div class="h-screen bg-dark_wallet">bvfdfv</div>
           </mat-tab>
         </mat-tab-group>
       </div>
