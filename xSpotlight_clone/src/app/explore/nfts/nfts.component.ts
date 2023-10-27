@@ -2,7 +2,6 @@ import { Component, HostListener, Renderer2 } from '@angular/core';
 import { NftsService } from './nfts.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { ScreenshotService } from 'src/app/shared/screenshot.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NftDetailsComponent } from 'src/app/nft-details/nft-details.component';
 

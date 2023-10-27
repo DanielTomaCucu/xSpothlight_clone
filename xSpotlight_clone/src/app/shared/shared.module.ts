@@ -4,11 +4,31 @@ import { TrimTextPipe } from './trimText.pipe';
 import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
 import { RouterModule } from '@angular/router';
-
+import { CapitalizePipe } from './capitalize.pipe';
+import { TruncatePipe } from './truncate.pipe';
+import { TimestampToDatePipe } from './timestamp.pipe';
+import { SkeletonLoaderNftDetailsComponent } from './skeleton-loader-nft-details/skeleton-loader-nft-details.component';
 
 @NgModule({
-  declarations: [TrimTextPipe, SkeletonLoaderComponent, NavbarMobileComponent],
+  declarations: [
+    TrimTextPipe,
+    SkeletonLoaderComponent,
+    NavbarMobileComponent,
+    CapitalizePipe,
+    TruncatePipe,
+    TimestampToDatePipe,
+    SkeletonLoaderNftDetailsComponent,
+    SkeletonLoaderNftDetailsComponent,
+  ],
   imports: [CommonModule, RouterModule],
-  exports: [TrimTextPipe, SkeletonLoaderComponent, NavbarMobileComponent],
+  exports: [
+    TrimTextPipe,
+    SkeletonLoaderComponent,
+    NavbarMobileComponent,
+    CapitalizePipe,
+    TruncatePipe,
+    TimestampToDatePipe,
+    SkeletonLoaderNftDetailsComponent,
+  ],
 })
 export class SharedModule {}

@@ -10,7 +10,7 @@ module.exports = {
         lg: "992px", // Large devices (desktops, 992px and up)
         xl: "1200px", // Extra large devices (large desktops, 1200px and up)
         "2xl": "1400px", // Extra extra large devices (larger desktops, 1400px and up)
-        "3xl":"1900px",
+        "3xl": "1900px",
       },
       padding: {
         30: "7.5rem", // for px-30
@@ -29,10 +29,13 @@ module.exports = {
         dark_wallet: "#0b0b0b",
         footer_free: "#00c8b0",
         footer_free_bg: "rgb(0,200,176,.1)",
-        blog_text:"#b2b0a8"
+        blog_text: "#b2b0a8",
+        pink: "#d63384",
+        bg_pink: "#34172b",
       },
       width: {
         "fit-content": "fit-content",
+        calc: "calc(100% - 470px)",
       },
       inset: {
         "-4vh": "-4vh",
@@ -42,8 +45,8 @@ module.exports = {
         1: "1px",
       },
       borderRadius: {
-        '4xl':'35%'
-      }
+        "4xl": "35%",
+      },
     },
   },
   plugins: [
