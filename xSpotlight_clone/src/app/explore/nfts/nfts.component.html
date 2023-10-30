@@ -31,7 +31,7 @@
             src="./../../assets/bg/user-placeholder.jpeg"
             class="w-6 border-neutral-700 rounded-full"
           />
-          <p class="md:text-lg font-light justify-end text-yellow cursor-pointer" (click)="redirectToUser(nft?.creator)">
+          <p class="md:text-lg font-light justify-end text-yellow cursor-pointer" (click)="redirectToUser($event,nft?.creator)">
             {{ nft?.creator |trimText }}
           </p>
         </div>

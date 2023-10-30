@@ -10,14 +10,27 @@
       class="md:w-calc flex justify-center items-center relative h-[30%] md:h-full"
       *ngIf="nftDetails?.url; else noImage"
     >
-      <img
-        [src]="nftDetails?.url"
+      <div
+        *ngIf="isVideo(nftDetails?.url); else imageBlock"
         class="h-[80%] md:w-[80%] object-contain self-center justify-self-center relative z-10"
-      />
-      <img
+      >
+        <video
+          class="h-[80%] object-contain self-center justify-self-center relative z-10"
+          [src]="nftDetails?.url"
+        ></video>
+      </div>
+      <ng-template #imageBlock>
+        <img
+          [src]="nftDetails?.url"
+          class="h-[80%] md:w-[80%] object-contain self-center justify-self-center relative z-10"
+        />
+         <img
         [src]="nftDetails?.url"
         class="h-[80%] w-[80%] object-contain self-center justify-self-center absolute glow-image"
       />
+      </ng-template>
+
+
     </div>
     <ng-template
       class="md:w-calc flex justify-center items-center relative"
@@ -47,10 +60,17 @@
               src="../../assets/logos/verifid.svg"
               class="h-10 justify-self-center self-center"
             />
-            <img
-              src="../../assets/logos/redirect.svg"
+            <a
+              [href]="
+                'https://explorer.multiversx.com/nfts/' + nftDetails.identifier
+              "
+              target="_blank"
               class="h-4 justify-self-center self-center"
-            />
+            >
+              <img
+                src="../../assets/logos/redirect.svg"
+                class="h-4 justify-self-center self-center"
+            /></a>
           </div>
           <div class="bg-dark">
             <p class="text-yellow px-5 py-2 font-bold">
@@ -99,7 +119,7 @@
                   <p class="text-yellow font-thin text-xl">Loading...</p>
                 </div>
                 <ng-template #data>
-                  <div class="flex flex-row w-full justify-between text-sm ">
+                  <div class="flex flex-row w-full justify-between text-sm">
                     <div class="flex flex-row gap-1">
                       <img
                         src="../../assets/nft/prop.svg"
@@ -186,7 +206,9 @@
                         </p>
                       </div>
                       <p class="text-yellow">
-                        {{ nftDetails?.owner | trimText }}
+                        <a [routerLink]="nftDetails.owner" (click)="close()">
+                          {{ nftDetails?.owner | trimText }}</a
+                        >
                       </p>
                     </div>
 
@@ -199,7 +221,12 @@
                         <p
                           class="text-text_silver font-bold text-xs self-end justify-self-center"
                         >
-                          Creator
+                          <a
+                            [routerLink]="nftDetails.creator"
+                            (click)="close()"
+                          >
+                            Creator</a
+                          >
                         </p>
                       </div>
                       <p class="text-yellow">
@@ -219,7 +246,12 @@
                           File type
                         </p>
                       </div>
-                      <p class="text-white">{{ nftDetails?.identifier }}</p>
+                      <p class="text-white">
+                        Image
+                        <span class="text-text_silver font-thin"
+                          >(.{{ nftDetails?.url | fileExtension }})</span
+                        >
+                      </p>
                     </div>
                   </div>
                   <div>
@@ -324,8 +356,10 @@
                         </p>
                       </div>
                       <div class="text-yellow flex flex-col">
-                        <p class="" *ngFor="let url of nftDetails?.uris">
-                          {{ url | truncate }}
+                        <p class="cursor-pointer">
+                          <a [href]="nftDetails.url" target="_blank">
+                            {{ nftDetails.url | truncate }}</a
+                          >
                         </p>
                       </div>
                     </div>
@@ -359,7 +393,9 @@
                           <p class="text-white">
                             Received by
                             <span class="text-yellow font-bold">
-                              {{ item?.receiver | trimText }}</span
+                              <a [routerLink]="item.receiver" (click)="close()">
+                                {{ item?.receiver | trimText }}</a
+                              ></span
                             >
                           </p>
                           <p class="text-text_silver text-sm">
@@ -380,7 +416,12 @@
                           <p class="text-white">
                             Minted by
                             <span class="text-yellow font-bold">
-                              {{ nftDetails?.creator | trimText }}</span
+                              <a
+                                [routerLink]="nftDetails?.creator"
+                                (click)="close()"
+                              >
+                                {{ nftDetails?.creator | trimText }}</a
+                              ></span
                             >
                           </p>
                           <p class="text-text_silver text-sm">
@@ -413,7 +454,9 @@
                     <p class="text-white">
                       Minted by
                       <span class="text-yellow font-bold">
-                        {{ nftDetails?.creator | trimText }}</span
+                        <a [routerLink]="nftDetails?.creator" (click)="close()">
+                          {{ nftDetails?.creator | trimText }}</a
+                        ></span
                       >
                     </p>
                     <p class="text-text_silver text-sm">

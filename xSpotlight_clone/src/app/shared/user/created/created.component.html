@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 container pt-8">
-<div
+<div (click)="openNftDetails(nft.identifier)"
   *ngFor="let nft of nfts; let i = index"
-  class=" content-center items-center border border-secondary rounded-md group"
+  class=" content-center items-center border border-secondary rounded-md group cursor-pointer"
 >
   <div class="overflow-hidden ">
     <div class="overflow-hidden">
