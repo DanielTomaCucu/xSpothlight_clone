@@ -34,8 +34,8 @@
       <div
         class="justify-self-center font-bold text-center col-start-1 col-end-3 lg:col-start-3 lg:col-end-4 w-full pt-3 lg:pt-0"
       >
-        <p class="text-2xl text-yellow">
-          {{ collectionDetail?.owner | trimText }}
+        <p class="text-2xl text-yellow cursor-pointer" (click)="redirectToUser($event, collectionDetail.owner)">
+       {{ collectionDetail?.owner | trimText }}
         </p>
         <p class="text-sm text-neutral-500">Owner</p>
       </div>
@@ -43,7 +43,7 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8">
       <div
-        *ngFor="let nft of nfts; let i = index" (click)="redirectToNftDetail(nft.ticker)"
+        *ngFor="let nft of nfts; let i = index"  (click)="openNftDetails(nft?.identifier)"
         class="content-center items-center border border-secondary rounded-md group cursor-pointer"
       >
         <div class="overflow-hidden">
@@ -70,7 +70,7 @@
                   src="./../../assets/bg/user-placeholder.jpeg"
                   class="w-6 border-neutral-700 rounded-full"
                 />
-                <p class="md:text-lg font-normal justify-end text-yellow cursor-pointer" (click)="redirectToUser( nft?.creator)">
+                <p class="md:text-lg font-normal justify-end text-yellow cursor-pointer" (click)="redirectToUser($event, nft?.creator)">
                   {{ nft?.creator | trimText }}
                 </p>
               </div>

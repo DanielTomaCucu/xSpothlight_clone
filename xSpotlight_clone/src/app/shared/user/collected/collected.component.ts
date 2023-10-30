@@ -2,6 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { CollectedService } from './collected.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscriber, Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { NftDetailsComponent } from 'src/app/nft-details/nft-details.component';
 
 @Component({
   selector: 'app-collected',
@@ -16,7 +18,8 @@ export class CollectedComponent {
   constructor(
     private collectedService: CollectedService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
     this.subs = new Subscription();
   }
@@ -49,6 +52,15 @@ export class CollectedComponent {
           this.loading = false;
         });
     }
+  }
+  openNftDetails(nftId: string) {
+    const dialogRef = this.dialog.open(NftDetailsComponent, {
+      panelClass: ['full-screen-modal'],
+      data: {
+        nftId: nftId,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
   redirectToUser(user: string) {
     this.router.navigate(['', user]);

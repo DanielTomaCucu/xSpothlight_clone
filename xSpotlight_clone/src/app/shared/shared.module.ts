@@ -8,6 +8,7 @@ import { CapitalizePipe } from './capitalize.pipe';
 import { TruncatePipe } from './truncate.pipe';
 import { TimestampToDatePipe } from './timestamp.pipe';
 import { SkeletonLoaderNftDetailsComponent } from './skeleton-loader-nft-details/skeleton-loader-nft-details.component';
+import { FileExtensionPipe } from './fileExternsion.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SkeletonLoaderNftDetailsComponent } from './skeleton-loader-nft-details
     TimestampToDatePipe,
     SkeletonLoaderNftDetailsComponent,
     SkeletonLoaderNftDetailsComponent,
+    FileExtensionPipe
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -28,7 +30,7 @@ import { SkeletonLoaderNftDetailsComponent } from './skeleton-loader-nft-details
     CapitalizePipe,
     TruncatePipe,
     TimestampToDatePipe,
-    SkeletonLoaderNftDetailsComponent,
+    SkeletonLoaderNftDetailsComponent,FileExtensionPipe
   ],
 })
 export class SharedModule {}

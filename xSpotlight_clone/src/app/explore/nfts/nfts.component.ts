@@ -36,16 +36,16 @@ export class NftsComponent {
       this.loadMore();
     }
   }
-  openNftDetails(nftId:string) {
+  openNftDetails(nftId: string) {
     const dialogRef = this.dialog.open(NftDetailsComponent, {
       panelClass: ['full-screen-modal'],
       data: {
-        nftId: nftId
-      }
+        nftId: nftId,
+      },
     });
-    dialogRef.afterClosed().subscribe((result) => {
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
+
   private loadMore(): void {
     this.loading = true;
 
@@ -55,7 +55,8 @@ export class NftsComponent {
       console.log(this.nfts);
     });
   }
-  redirectToUser(user: string) {
+  redirectToUser(event: Event, user: string) {
+    event.stopPropagation();
     this.router.navigate(['', user]);
   }
 

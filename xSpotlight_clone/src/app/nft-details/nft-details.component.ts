@@ -23,12 +23,19 @@ export class NftDetailsComponent {
     this.dialogRef.close();
   }
 
+  isVideo(url: string): boolean {
+    return (
+      url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg')
+    );
+  }
+
   ngOnInit() {
-     this.loading = true;
+    this.loading = true;
     this.nftDetailsService.getNftDetail(this.data.nftId).subscribe((data) => {
       this.nftDetails = data;
       this.rarities = data.rarities;
-       this.loading = false;
+      this.loading = false;
+      console.log(data);
     });
   }
 
@@ -40,12 +47,11 @@ export class NftDetailsComponent {
         .subscribe((data) => {
           console.log(data);
           this.history = data;
-          this.loading=false
+          this.loading = false;
         });
     }
   }
   loadMore(): void {
-
     this.nftDetailsService.getNftHistory(this.data.nftId).subscribe((data) => {
       this.history = [...this.history, ...data];
     });
