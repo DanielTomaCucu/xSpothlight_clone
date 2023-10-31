@@ -1,6 +1,6 @@
 # xSpotlight Clone
-This project is a replica of xSpotlight, using the APIs provided by MultiversX to view and navigate collections and nfts.<br>
-<b>In this app you cannot intaract with blockchain (connect your wallet, buy/sell nfts).</b>
+This project is a replica of <a href='https://xspotlight.com/'> xSpotlight</a>, using the APIs provided by MultiversX to view and navigate collections and nfts.<br>
+<b>In this app you cannot intaract with blockchain (connect your wallet, buy/sell nfts), for that visit  <a href='https://xspotlight.com/'> xSpotlight</a>. </b>
 ## Purpose
 This project was developed as a hands-on exercise to learn more about integrating third-party APIs into Angular applications, as well as refining skills in Angular and Tailwind.
 
